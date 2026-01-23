@@ -63,17 +63,7 @@
     
     <div class="depoimentos-stats">
       <div class="row">
-        <div class="col">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <i class="fas fa-smile"></i>
-            </div>
-            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
-            <div class="stat-label">Satisfação</div>
-          </div>
-        </div>
-        
-        <div class="col">
+        <div class="col col-6">
           <div class="stat-item">
             <div class="stat-icon">
               <i class="fas fa-trophy"></i>
@@ -83,22 +73,32 @@
           </div>
         </div>
         
-        <div class="col">
+        <div class="col col-6">
           <div class="stat-item">
             <div class="stat-icon">
               <i class="fas fa-star"></i>
             </div>
-            <div class="stat-number rolling" data-counter="5.00" data-decimals="2"></div>
-            <div class="stat-label">Avaliação Média</div>
+            <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
+            <div class="stat-label">Cursos Ministrados</div>
           </div>
         </div>
         
-        <div class="col">
+        <div class="col col-6">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-smile"></i>
+            </div>
+            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+        </div>
+
+        <div class="col col-6">
           <div class="stat-item">
             <div class="stat-icon">
               <i class="fas fa-users"></i>
             </div>
-            <div class="stat-number rolling" data-counter="95" data-suffix="%"></div>
+            <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
             <div class="stat-label">Recomendariam</div>
           </div>
         </div>
@@ -135,7 +135,7 @@
 .depoimentos-carousel {
   position: relative;
   height: auto;
-  min-height: 400px;
+  min-height: 100px;
 }
 
 .depoimento-slide {
@@ -145,7 +145,7 @@
   width: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transicao-lenta);
+  transition: all var(--transicao-media);
   transform: translateX(50px);
 }
 
@@ -159,8 +159,8 @@
 .depoimento-card {
   background: var(--branco);
   border-radius: 16px;
-  padding: 3rem;
-  box-shadow: var(--sombra-media);
+  padding: 2rem;
+  box-shadow: var(--sombra-leve);
   position: relative;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .depoimento-content {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .depoimento-text {
@@ -189,7 +189,7 @@
   line-height: 1.6;
   color: var(--cinza-escuro);
   font-style: italic;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -207,7 +207,7 @@
   min-width: 100px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--vermelho-principal);
+  border: 3px solid var(--vermelho-principal);
 }
 
 .depoimento-foto img {
@@ -253,7 +253,7 @@
   gap: 0.5rem;
   margin-top: 1.5rem;
   color: #FFB800;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 /* Navegação */
@@ -265,8 +265,8 @@
 }
 
 .depoimento-nav {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--branco);
   border: 2px solid var(--vermelho-principal);
   border-radius: 50%;
@@ -290,7 +290,7 @@
 .depoimentos-dots {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 1.0rem;
   margin-top: 1.5rem;
 }
 
@@ -305,7 +305,7 @@
 
 .dep-dot.active {
   background: var(--vermelho-principal);
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 /* Stats */
@@ -322,8 +322,8 @@
 }
 
 .stat-icon {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 1rem;
   background: var(--gradiente-verde);
   border-radius: 50%;
@@ -331,19 +331,19 @@
   align-items: center;
   justify-content: center;
   color: var(--branco);
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .stat-number {
-  font-size: 2.0rem;
-  font-weight: 600;
+  font-size: 4.0rem;
+  font-weight: 800;
   color: var(--vermelho-principal);
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
   color: var(--cinza-medio);
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 /* Responsividade */

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== CONFIGURAÇÃO =====
   const animationConfig = {
-    threshold: 0.10, // 10% do elemento visível para animar
+    threshold: 0.15, // 25% do elemento visível para animar
     rootMargin: '0px'
   };
   
@@ -46,9 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
         
         console.log('✨ Elemento animado:', entry.target.tagName);
-        
-        // Parar de observar após animar (só anima 1 vez)
-        observer.unobserve(entry.target);
+      } 
+      else {
+      // Elemento saiu da viewport → reseta para animar novamente
+      entry.target.style.opacity = '0';
+      entry.target.style.transform = 'translateY(30px)';
       }
     });
   }, animationConfig);
