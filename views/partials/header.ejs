@@ -1,22 +1,176 @@
 <header class="header" style="position: fixed; top: 0; left: 0; width: 100%; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;">
-    <nav style="padding: 1rem 0;">
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+  <nav style="padding: 1rem 0;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center;">
+      <!-- Logo -->
       <div style="display: flex; align-items: center; gap: 1rem;">
         <img src="/images/logo/logo-fesmp.png" alt="Logo FESMP" style="height: 60px;" onerror="this.style.display='none'">
       </div>
       
-      <ul style="display: flex; list-style: none; gap: 1.5rem; align-items: center;">
-        <li><a href="/" style="color: #1A1A1A; font-weight: 500;">Início</a></li>
-        <li><a href="#cursos" style="color: #1A1A1A; font-weight: 500;">Cursos</a></li>
-        <li><a href="#diferenciais" style="color: #1A1A1A; font-weight: 500;">Diferenciais</a></li>
-        <li><a href="#contato" style="color: #1A1A1A; font-weight: 500;">Contato</a></li>
+      <!-- Menu Desktop -->
+      <ul id="navMenu" class="nav-menu" style="display: flex; list-style: none; gap: 1.5rem; align-items: center; margin: 0; padding: 0;">
+        <li><a href="/" style="color: #1A1A1A; font-weight: 500; text-decoration: none;">Início</a></li>
+        <li><a href="#cursos" style="color: #1A1A1A; font-weight: 500; text-decoration: none;">Cursos</a></li>
+        <li><a href="#diferenciais" style="color: #1A1A1A; font-weight: 500; text-decoration: none;">Diferenciais</a></li>
+        <li><a href="#contato" style="color: #1A1A1A; font-weight: 500; text-decoration: none;">Contato</a></li>
       </ul>
       
-      <div style="display: flex; gap: 1rem;">
-        <a href="https://fundacaoescola.escolaweb.com.br/login.html#!/" class="btn btn-outline" target="_blank" style="padding: 0.625rem 1.5rem; font-size: 0.9rem;">Portal do Aluno</a>
-        <a href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home" class="btn btn-primary" target="_blank" style="padding: 0.625rem 1.5rem; font-size: 0.9rem;">Matrícula Digital</a>
+      <!-- Botões Desktop -->
+      <div class="nav-buttons" style="display: flex; gap: 1rem;">
+        <a href="https://fundacaoescola.escolaweb.com.br/login.html#!/" class="btn btn-outline" target="_blank" style="padding: 0.625rem 1.5rem; font-size: 0.9rem; text-decoration: none; border: 2px solid #1A1A1A; color: #1A1A1A; border-radius: 4px; transition: all 0.3s;">Portal do Aluno</a>
+        <a href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home" class="btn btn-primary" target="_blank" style="padding: 0.625rem 1.5rem; font-size: 0.9rem; text-decoration: none; background: #2D7A3E; color: white; border-radius: 4px; transition: all 0.3s;">Matrícula Digital</a>
       </div>
+      
+      <!-- Botão Hambúrguer (Mobile) -->
+      <button id="menuToggle" class="menu-toggle" style="display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; z-index: 1001;" aria-label="Menu">
+        <span style="display: block; width: 25px; height: 3px; background: #1A1A1A; margin: 5px 0; transition: all 0.3s;"></span>
+        <span style="display: block; width: 25px; height: 3px; background: #1A1A1A; margin: 5px 0; transition: all 0.3s;"></span>
+        <span style="display: block; width: 25px; height: 3px; background: #1A1A1A; margin: 5px 0; transition: all 0.3s;"></span>
+      </button>
     </div>
   </nav>
 </header>
-<div style="height: 10px;"></div>
+
+<div style="height: 92px;"></div>
+
+<style>
+  /* Estilos gerais */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .btn-outline:hover {
+    background: #1A1A1A !important;
+    color: white !important;
+  }
+  
+  .btn-primary:hover {
+    background: #2D7A3E !important;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block !important;
+    }
+    
+    .nav-menu {
+      position: fixed;
+      top: 92px;
+      left: -100%;
+      width: 100%;
+      height: calc(100vh - 92px);
+      background: white;
+      flex-direction: column !important;
+      justify-content: flex-start;
+      padding: 2rem 1rem !important;
+      gap: 0 !important;
+      transition: left 0.3s ease-in-out;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .nav-menu.active {
+      left: 0;
+    }
+    
+    .nav-menu li {
+      width: 100%;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav-menu li a {
+      display: block;
+      font-size: 1.1rem;
+    }
+    
+    .nav-buttons {
+      position: fixed;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      flex-direction: column !important;
+      padding: 1.5rem 1rem;
+      background: white;
+      border-top: 1px solid #f0f0f0;
+      gap: 0.75rem !important;
+      transition: left 0.3s ease-in-out;
+      z-index: 999;
+    }
+    
+    .nav-buttons.active {
+      left: 0;
+    }
+    
+    .nav-buttons a {
+      width: 100%;
+      text-align: center;
+      padding: 0.875rem 1.5rem !important;
+    }
+    
+    /* Animação do botão hambúrguer */
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .nav-menu {
+      display: flex !important;
+    }
+    
+    .nav-buttons {
+      display: flex !important;
+    }
+  }
+</style>
+
+<script>
+  // Toggle do menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navButtons = document.querySelector('.nav-buttons');
+  
+  menuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    navButtons.classList.toggle('active');
+    
+    // Previne scroll quando menu está aberto
+    if (navMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Fecha o menu ao clicar em um link
+  const menuLinks = navMenu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      navButtons.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+  
+  // Fecha o menu ao redimensionar para desktop
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
+      navButtons.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
