@@ -1,0 +1,52 @@
+[
+  {
+    "id": 5,
+    "nome": "Direito Penal e Direito Processual Penal",
+    "descricao": "Especialização completa em Direito Penal com enfoque prático e teórico avançado.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/direito-penal.jpg",
+    "destaque": true
+  },
+  {
+    "id": 2,
+    "nome": "Direito da Insolvência Empresarial",
+    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/direito-insolvencia.jpg",
+    "destaque": true
+  },
+  {
+    "id": 1,
+    "nome": "Direito Ambiental e Urbanístico",
+    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/direito-ambiental.jpg",
+    "destaque": false
+  },
+  {
+    "id": 3,
+    "nome": "Direito Processual Civil",
+    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/direito-civil.jpg",
+    "destaque": false
+  },
+  {
+    "id": 4,
+    "nome": "Direito Constitucional e Administrativo",
+    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/direito-constitucional.jpg",
+    "destaque": false
+  }
+]

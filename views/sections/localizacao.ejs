@@ -1,0 +1,230 @@
+<!-- views/sections/localizacao.ejs -->
+<div class="localizacao-bg">
+  <div class="container">
+    <div class="section-title">
+      <h2>Localização</h2>
+      <p>Venha nos visitar e conheça nossa estrutura</p>
+    </div>
+      
+      <div class="col col-12">
+        <div class="localizacao-map-wrapper">
+          <div class="localizacao-map">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.849784!2d-56.098!3d-15.603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM2JzEwLjgiUyA1NsKwMDUnNTIuOCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa da localização da FESMP">
+            </iframe>
+          </div>
+          
+          <div class="localizacao-galeria">
+            <h4>Estrutura</h4>
+            <div class="galeria-grid">
+              <div class="galeria-item">
+                <img src="/images/galeria/fachada.jpg" 
+                     alt="Fachada FESMP"
+                     onerror="this.parentElement.innerHTML='<div class=\'galeria-placeholder\'><i class=\'fas fa-building\'></i></div>'">
+              </div>
+              <div class="galeria-item">
+                <img src="/images/galeria/sala-aula.jpg" 
+                     alt="Sala de Aula"
+                     onerror="this.parentElement.innerHTML='<div class=\'galeria-placeholder\'><i class=\'fas fa-chalkboard\'></i></div>'">
+              </div>
+              <div class="galeria-item">
+                <img src="/images/galeria/biblioteca.jpg" 
+                     alt="Biblioteca"
+                     onerror="this.parentElement.innerHTML='<div class=\'galeria-placeholder\'><i class=\'fas fa-book\'></i></div>'">
+              </div>
+              <div class="galeria-item">
+                <img src="/images/galeria/auditorio.png" 
+                     alt="Auditório"
+                     onerror="this.parentElement.innerHTML='<div class=\'galeria-placeholder\'><i class=\'fas fa-users\'></i></div>'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === LOCALIZAÇÃO SECTION === */
+.localizacao-bg {
+  background: var(--cinza-claro);
+}
+
+.localizacao-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.localizacao-card {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: var(--sombra-leve);
+  transition: all var(--transicao-media);
+}
+
+.localizacao-card:hover {
+  transform: translateX(8px);
+  box-shadow: var(--sombra-media);
+}
+
+.localizacao-icon {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  background: var(--gradiente-vermelho);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: 1.5rem;
+}
+
+.localizacao-content h3 {
+  font-size: 1.1rem;
+  color: var(--preto);
+  margin-bottom: 0.5rem;
+}
+
+.localizacao-content p {
+  color: var(--cinza-medio);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.localizacao-content a {
+  color: var(--vermelho-principal);
+  font-weight: 600;
+  transition: color var(--transicao-rapida);
+}
+
+.localizacao-content a:hover {
+  color: var(--vermelho-escuro);
+}
+
+.localizacao-hint {
+  font-size: 0.85rem;
+  color: var(--cinza-medio);
+  font-style: italic;
+}
+
+.localizacao-actions {
+  margin-top: 1rem;
+}
+
+/* Mapa e Galeria */
+.localizacao-map-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+}
+
+.localizacao-map {
+  background: var(--branco);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 400px;
+  box-shadow: var(--sombra-media);
+}
+
+.localizacao-galeria {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--sombra-leve);
+}
+
+.localizacao-galeria h4 {
+  font-size: 1.25rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.galeria-item {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--cinza-claro);
+  cursor: pointer;
+  transition: all var(--transicao-media);
+}
+
+.galeria-item:hover {
+  transform: scale(1.05);
+  box-shadow: var(--sombra-media);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galeria-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cinza-claro);
+  color: var(--cinza-medio);
+  font-size: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .localizacao-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .localizacao-icon {
+    margin: 0 auto;
+  }
+  
+  .localizacao-actions .btn {
+    width: 100%;
+  }
+  
+  .localizacao-map {
+    height: 300px;
+  }
+  
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .localizacao-map-wrapper {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>

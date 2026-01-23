@@ -1,0 +1,206 @@
+<!-- views/sections/parceiros.ejs -->
+<div class="container">
+  <div class="section-title">
+    <h2>Parceiros</h2>
+    <p>Parcerias estratégicas que fortalecem nossa missão educacional</p>
+  </div>
+  
+  <div class="parceiros-grid">
+    <% parceiros.forEach(parceiro => { %>
+    <div class="parceiro-item">
+      <a href="<%= parceiro.url %>" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         title="<%= parceiro.nome %>">
+        <div class="parceiro-logo-wrapper">
+          <img src="<%= parceiro.logo %>" 
+               alt="<%= parceiro.nome %>"
+               class="parceiro-logo"
+               onerror="this.parentElement.innerHTML='<div class=\'parceiro-fallback\'><i class=\'fas fa-handshake\'></i></div>'">
+        </div>
+        <h4 class="parceiro-nome"><%= parceiro.nome %></h4>
+      </a>
+    </div>
+    <% }); %>
+  </div>
+  
+  <div class="parceiros-info">
+    <div class="parceiros-info-box">
+      <div class="parceiros-info-icon">
+        <i class="fas fa-handshake"></i>
+      </div>
+      <div class="parceiros-info-content">
+        <h3>Seja Nosso Parceiro</h3>
+        <p>
+          A FESMP está sempre aberta a novas parcerias institucionais que agreguem 
+          valor à formação de nossos alunos. Entre em contato e conheça as 
+          oportunidades de colaboração.
+        </p>
+        <a href="#contato" class="btn btn-primary">
+          <i class="fas fa-envelope"></i>
+          Propor Parceria
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === PARCEIROS SECTION === */
+.parceiros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.parceiro-item {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--sombra-leve);
+  transition: all var(--transicao-media);
+  border: 2px solid transparent;
+}
+
+.parceiro-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-forte);
+  border-color: var(--vermelho-principal);
+}
+
+.parceiro-item a {
+  display: block;
+  color: inherit;
+}
+
+.parceiro-logo-wrapper {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.parceiro-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all var(--transicao-media);
+}
+
+.parceiro-item:hover .parceiro-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.parceiro-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cinza-claro);
+  border-radius: 8px;
+  color: var(--cinza-medio);
+  font-size: 3rem;
+}
+
+.parceiro-nome {
+  font-size: 1rem;
+  color: var(--cinza-escuro);
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color var(--transicao-rapida);
+}
+
+.parceiro-item:hover .parceiro-nome {
+  color: var(--vermelho-principal);
+}
+
+/* Parceiros Info */
+.parceiros-info {
+  margin-top: 3rem;
+}
+
+.parceiros-info-box {
+  background: var(--cinza-claro);
+  border-radius: 12px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.parceiros-info-icon {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  background: var(--gradiente-verde);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: 3rem;
+}
+
+.parceiros-info-content h3 {
+  font-size: 1.75rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+}
+
+.parceiros-info-content p {
+  color: var(--cinza-medio);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .parceiros-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .parceiro-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .parceiro-logo-wrapper {
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  .parceiro-nome {
+    font-size: 0.9rem;
+  }
+  
+  .parceiros-info-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  
+  .parceiros-info-icon {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    font-size: 2.5rem;
+  }
+  
+  .parceiros-info-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .parceiros-info-content .btn {
+    width: 100%;
+  }
+}
+</style>

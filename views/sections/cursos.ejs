@@ -1,0 +1,276 @@
+<!-- views/sections/cursos.ejs -->
+<div class="container">
+  <div class="section-title">
+    <h2>Cursos de Pós-Graduação</h2>
+    <p>Especializações reconhecidas pelo MEC com excelência acadêmica</p>
+  </div>
+  
+  <div class="row">
+    <% cursos.forEach(curso => { %>
+    <div class="col col-12 col-md-6 col-lg-4">
+      <div class="curso-card <%= curso.destaque ? 'destaque' : '' %>">
+        <% if (curso.destaque) { %>
+        <div class="curso-badge">
+          <i class="fas fa-star"></i>
+          Destaque
+        </div>
+        <% } %>
+        
+        <div class="curso-image">
+          <img src="<%= curso.imagem %>" 
+               alt="<%= curso.nome %>"
+               onerror="this.src='/images/cursos/default.jpg'">
+          <div class="curso-overlay">
+            <span class="curso-modalidade">
+              <i class="fas fa-map-marker-alt"></i>
+              <%= curso.modalidade %>
+            </span>
+          </div>
+        </div>
+        
+        <div class="curso-body">
+          <h3 class="curso-title"><%= curso.nome %></h3>
+          <p class="curso-description"><%= curso.descricao %></p>
+          
+          <div class="curso-info">
+            <div class="curso-info-item">
+              <i class="fas fa-clock"></i>
+              <span><%= curso.duracao %></span>
+            </div>
+            <div class="curso-info-item">
+              <i class="fas fa-book"></i>
+              <span><%= curso.cargaHoraria %></span>
+            </div>
+          </div>
+          
+          <div class="curso-footer">
+            <a href="#contato" class="btn btn-primary btn-block">
+              <i class="fas fa-graduation-cap"></i>
+              Saiba Mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+  
+  <div class="cursos-cta">
+    <div class="cursos-cta-content">
+      <div class="cursos-cta-text">
+        <h3>Não encontrou o curso ideal?</h3>
+        <p>Entre em contato conosco e saiba mais sobre outras especializações disponíveis</p>
+      </div>
+      <div class="cursos-cta-action">
+        <a href="#contato" class="btn btn-secondary btn-lg">
+          <i class="fas fa-envelope"></i>
+          Fale Conosco
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === CURSOS SECTION === */
+.curso-card {
+  background: var(--branco);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra-leve);
+  transition: all var(--transicao-media);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.curso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-forte);
+}
+
+.curso-card.destaque {
+  border: 2px solid var(--vermelho-principal);
+}
+
+.curso-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gradiente-vermelho);
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+  box-shadow: var(--sombra-media);
+}
+
+.curso-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: var(--cinza-claro);
+}
+
+.curso-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicao-lenta);
+}
+
+.curso-card:hover .curso-image img {
+  transform: scale(1.1);
+}
+
+.curso-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.curso-modalidade {
+  color: var(--branco);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.curso-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-title {
+  font-size: 1.25rem;
+  color: var(--preto);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  min-height: 2.6rem;
+}
+
+.curso-description {
+  color: var(--cinza-medio);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.curso-info {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--cinza-claro);
+  border-bottom: 1px solid var(--cinza-claro);
+  margin-bottom: 1.5rem;
+}
+
+.curso-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--cinza-escuro);
+}
+
+.curso-info-item i {
+  color: var(--verde-institucional);
+  font-size: 1rem;
+}
+
+.curso-footer .btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* CTA Section */
+.cursos-cta {
+  margin-top: 4rem;
+  background: var(--gradiente-vermelho);
+  border-radius: 12px;
+  padding: 3rem;
+  color: var(--branco);
+}
+
+.cursos-cta-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cursos-cta-text h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--branco);
+}
+
+.cursos-cta-text p {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+  color: var(--branco);
+}
+
+.cursos-cta-action .btn {
+  white-space: nowrap;
+  background: var(--branco);
+  color: var(--vermelho-principal);
+}
+
+.cursos-cta-action .btn:hover {
+  background: var(--cinza-claro);
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .curso-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .curso-title {
+    font-size: 1.1rem;
+    min-height: auto;
+  }
+  
+  .curso-info {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .cursos-cta {
+    padding: 2rem 1.5rem;
+  }
+  
+  .cursos-cta-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .cursos-cta-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .cursos-cta-action .btn {
+    width: 100%;
+  }
+}
+</style>

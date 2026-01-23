@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "Dr. Antônio Alberto Machado",
+    "titulacao": "Doutor",
+    "cargo": "Promotor de Justiça",
+    "foto": "/images/professores/antonio-machado.jpg",
+    "especialidade": "Direito Penal"
+  },
+  {
+    "id": 2,
+    "nome": "Dr. Antônio Carlos da Ponte",
+    "titulacao": "Doutor",
+    "cargo": "Procurador de Justiça",
+    "foto": "/images/professores/antonio-ponte.jpg",
+    "especialidade": "Direito Processual Penal"
+  },
+  {
+    "id": 3,
+    "nome": "Dr. Antônio Carlos Efing",
+    "titulacao": "Doutor",
+    "cargo": "Procurador de Justiça",
+    "foto": "/images/professores/antonio-efing.jpg",
+    "especialidade": "Direito do Consumidor"
+  }
+]

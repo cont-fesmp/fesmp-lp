@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nome": "Ministério Público de Mato Grosso",
+    "logo": "/images/parceiros/mpmt.png",
+    "url": "https://www.mpmt.mp.br/"
+  },
+  {
+    "id": 2,
+    "nome": "AMMP - Associação Mato-Grossense do Ministério Público",
+    "logo": "/images/parceiros/ammp.png",
+    "url": "https://www.ammp.com.br/"
+  }
+]

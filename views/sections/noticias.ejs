@@ -1,0 +1,342 @@
+<!-- views/sections/noticias.ejs -->
+<div class="noticias-bg">
+  <div class="container">
+    <div class="section-title">
+      <h2>Últimas Notícias</h2>
+      <p>Fique por dentro das novidades da FESMP</p>
+    </div>
+    
+    <div class="noticias-grid">
+      <% if (noticias.length > 0) { %>
+        <!-- Notícia em Destaque -->
+        <% const destaque = noticias.find(n => n.destaque) || noticias[0]; %>
+        <div class="noticia-destaque">
+          <div class="noticia-destaque-image">
+            <img src="<%= destaque.imagem %>" 
+                 alt="<%= destaque.titulo %>"
+                 onerror="this.src='/images/noticias/default.jpg'">
+            <div class="noticia-destaque-overlay"></div>
+            <span class="noticia-categoria"><%= destaque.categoria %></span>
+          </div>
+          <div class="noticia-destaque-content">
+            <div class="noticia-meta">
+              <span class="noticia-data">
+                <i class="far fa-calendar"></i>
+                <%= new Date(destaque.data).toLocaleDateString('pt-BR') %>
+              </span>
+            </div>
+            <h3 class="noticia-title"><%= destaque.titulo %></h3>
+            <p class="noticia-resumo"><%= destaque.resumo %></p>
+            <a href="#" class="noticia-link">
+              Ler mais
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Outras Notícias -->
+        <div class="noticias-lista">
+          <% noticias.slice(1, 6).forEach(noticia => { %>
+          <div class="noticia-item">
+            <div class="noticia-item-image">
+              <img src="<%= noticia.imagem %>" 
+                   alt="<%= noticia.titulo %>"
+                   onerror="this.src='/images/noticias/default.jpg'">
+              <span class="noticia-categoria-small"><%= noticia.categoria %></span>
+            </div>
+            <div class="noticia-item-content">
+              <div class="noticia-meta">
+                <span class="noticia-data">
+                  <i class="far fa-calendar"></i>
+                  <%= new Date(noticia.data).toLocaleDateString('pt-BR') %>
+                </span>
+              </div>
+              <h4 class="noticia-item-title"><%= noticia.titulo %></h4>
+              <p class="noticia-item-resumo"><%= noticia.resumo %></p>
+              <a href="#" class="noticia-item-link">
+                Ler mais <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div class="noticias-empty">
+          <i class="far fa-newspaper"></i>
+          <p>Nenhuma notícia disponível no momento.</p>
+        </div>
+      <% } %>
+    </div>
+    
+    <div class="noticias-footer">
+      <a href="/noticias" class="btn btn-outline btn-lg">
+        <i class="fas fa-newspaper"></i>
+        Ver Todas as Notícias
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === NOTÍCIAS SECTION === */
+.noticias-bg {
+  background: var(--cinza-claro);
+}
+
+.noticias-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Notícia em Destaque */
+.noticia-destaque {
+  background: var(--branco);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-media);
+}
+
+.noticia-destaque:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-forte);
+}
+
+.noticia-destaque-image {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.noticia-destaque-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicao-lenta);
+}
+
+.noticia-destaque:hover .noticia-destaque-image img {
+  transform: scale(1.05);
+}
+
+.noticia-destaque-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+.noticia-categoria {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--vermelho-principal);
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.noticia-destaque-content {
+  padding: 2rem;
+}
+
+.noticia-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.noticia-data {
+  color: var(--cinza-medio);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.noticia-title {
+  font-size: 1.75rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.noticia-resumo {
+  color: var(--cinza-medio);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.noticia-link {
+  color: var(--vermelho-principal);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transicao-rapida);
+}
+
+.noticia-link:hover {
+  gap: 1rem;
+}
+
+/* Lista de Notícias */
+.noticias-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.noticia-item {
+  background: var(--branco);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: var(--sombra-leve);
+  transition: all var(--transicao-media);
+}
+
+.noticia-item:hover {
+  transform: translateX(8px);
+  box-shadow: var(--sombra-media);
+}
+
+.noticia-item-image {
+  position: relative;
+  width: 180px;
+  min-width: 180px;
+  height: 140px;
+  overflow: hidden;
+}
+
+.noticia-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.noticia-item:hover .noticia-item-image img {
+  transform: scale(1.1);
+}
+
+.noticia-categoria-small {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background: var(--verde-institucional);
+  color: var(--branco);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.noticia-item-content {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.noticia-item-title {
+  font-size: 1.1rem;
+  color: var(--preto);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.noticia-item-resumo {
+  color: var(--cinza-medio);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.noticia-item-link {
+  color: var(--vermelho-principal);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transicao-rapida);
+}
+
+.noticia-item-link:hover {
+  gap: 1rem;
+}
+
+/* Empty State */
+.noticias-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--cinza-medio);
+}
+
+.noticias-empty i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+/* Footer */
+.noticias-footer {
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .noticias-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .noticia-item-image {
+    width: 150px;
+    min-width: 150px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .noticia-destaque-image {
+    height: 250px;
+  }
+  
+  .noticia-destaque-content {
+    padding: 1.5rem;
+  }
+  
+  .noticia-title {
+    font-size: 1.5rem;
+  }
+  
+  .noticia-item {
+    flex-direction: column;
+  }
+  
+  .noticia-item-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .noticias-footer .btn {
+    width: 100%;
+  }
+}
+</style>

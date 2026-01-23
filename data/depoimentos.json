@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nome": "Mirella Soares",
+    "profissao": "Advogada",
+    "foto": "/images/depoimentos/mirella-soares.jpg",
+    "depoimento": "A pós-graduação em Direito Ambiental da FESMP foi uma experiência enriquecedora e transformadora.",
+    "curso": "Direito Ambiental",
+    "destaque": false
+  },
+  {
+    "id": 2,
+    "nome": "Edmar Alves de Azevedo Junior",
+    "profissao": "Advogado",
+    "foto": "/images/depoimentos/edmar-azevedo.jpg",
+    "depoimento": "Participar de uma pós realizada pela FESMP/MT foi fundamental para alavancar minha capacitação profissional.",
+    "curso": "Direito Penal",
+    "destaque": false
+  },
+  {
+    "id": 3,
+    "nome": "Hanae Yamamura de Oliveira",
+    "profissao": "Juíza de Direito/TJMT",
+    "foto": "/images/depoimentos/hanae-yamamura.png",
+    "depoimento": "A especialização em Direito Penal e Processo Penal da FESMP/MT foi uma experiência transformadora, com um corpo docente altamente qualificado.",
+    "curso": "Direito Penal",
+    "destaque": true
+  }
+]

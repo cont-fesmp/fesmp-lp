@@ -1,0 +1,475 @@
+<!-- views/sections/depoimentos.ejs -->
+<div class="depoimentos-bg">
+  <div class="container">
+    <div class="section-title">
+      <h2>Depoimentos e Avaliações</h2>
+      <p>Histórias reais de transformação profissional</p>
+    </div>
+    
+    <div class="depoimentos-carousel-wrapper">
+      <div class="depoimentos-carousel" id="depoimentosCarousel">
+        <% depoimentos.forEach((depoimento, index) => { %>
+        <div class="depoimento-slide <%= index === 0 ? 'active' : '' %>">
+          <div class="depoimento-card">
+            <div class="depoimento-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            
+            <div class="depoimento-content">
+              <p class="depoimento-text">
+                "<%= depoimento.depoimento %>"
+              </p>
+              
+              <div class="depoimento-autor">
+                <div class="depoimento-foto">
+                  <img src="<%= depoimento.foto %>" 
+                       alt="<%= depoimento.nome %>"
+                       onerror="this.src='/images/depoimentos/default.jpg'">
+                </div>
+                <div class="depoimento-info">
+                  <h4 class="depoimento-nome"><%= depoimento.nome %></h4>
+                  <p class="depoimento-profissao"><%= depoimento.profissao %></p>
+                  <span class="depoimento-curso">
+                    <i class="fas fa-graduation-cap"></i>
+                    <%= depoimento.curso %>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="depoimento-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+      
+      <div class="depoimentos-navigation">
+        <button class="depoimento-nav prev" id="depPrev" aria-label="Anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="depoimento-nav next" id="depNext" aria-label="Próximo">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      
+      <div class="depoimentos-dots" id="depDots"></div>
+    </div>
+    
+    <div class="depoimentos-stats">
+      <div class="row">
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-smile"></i>
+            </div>
+            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
+            <div class="stat-label">Alunos Formados</div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-number rolling" data-counter="5.00" data-decimals="2"></div>
+            <div class="stat-label">Avaliação Média</div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-number rolling" data-counter="95" data-suffix="%"></div>
+            <div class="stat-label">Recomendariam</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === DEPOIMENTOS SECTION === */
+.depoimentos-bg {
+  background: var(--cinza-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.depoimentos-bg::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(45, 122, 62, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.depoimentos-carousel-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+
+.depoimentos-carousel {
+  position: relative;
+  height: auto;
+  min-height: 400px;
+}
+
+.depoimento-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transicao-lenta);
+  transform: translateX(50px);
+}
+
+.depoimento-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  position: relative;
+}
+
+.depoimento-card {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--sombra-media);
+  position: relative;
+}
+
+.depoimento-quote {
+  position: absolute;
+  top: -20px;
+  left: 3rem;
+  width: 60px;
+  height: 60px;
+  background: var(--gradiente-vermelho);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: 1.5rem;
+  box-shadow: var(--sombra-media);
+}
+
+.depoimento-content {
+  margin-top: 2rem;
+}
+
+.depoimento-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--cinza-escuro);
+  font-style: italic;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.depoimento-autor {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--cinza-claro);
+}
+
+.depoimento-foto {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--vermelho-principal);
+}
+
+.depoimento-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.depoimento-info {
+  flex: 1;
+}
+
+.depoimento-nome {
+  font-size: 1.25rem;
+  color: var(--preto);
+  margin-bottom: 0.25rem;
+}
+
+.depoimento-profissao {
+  color: var(--cinza-medio);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.depoimento-curso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--cinza-claro);
+  padding: 0.35rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: var(--cinza-escuro);
+}
+
+.depoimento-curso i {
+  color: var(--verde-institucional);
+}
+
+.depoimento-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  color: #FFB800;
+  font-size: 1.25rem;
+}
+
+/* Navegação */
+.depoimentos-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.depoimento-nav {
+  width: 50px;
+  height: 50px;
+  background: var(--branco);
+  border: 2px solid var(--vermelho-principal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vermelho-principal);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-leve);
+}
+
+.depoimento-nav:hover {
+  background: var(--vermelho-principal);
+  color: var(--branco);
+  transform: scale(1.1);
+}
+
+/* Dots */
+.depoimentos-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.dep-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--cinza-medio);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+}
+
+.dep-dot.active {
+  background: var(--vermelho-principal);
+  transform: scale(1.3);
+}
+
+/* Stats */
+.depoimentos-stats {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--sombra-leve);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.0rem;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: var(--gradiente-verde);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--branco);
+  font-size: 2rem;
+}
+
+.stat-number {
+  font-size: 2.0rem;
+  font-weight: 600;
+  color: var(--vermelho-principal);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--cinza-medio);
+  font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .depoimento-card {
+    padding: 2rem 1.0rem;
+  }
+  
+  .depoimento-quote {
+    left: 1.0rem;
+  }
+  
+  .depoimento-text {
+    font-size: 1rem;
+  }
+  
+  .depoimento-autor {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .depoimento-foto {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .stat-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.75rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .depoimentos-stats .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .depoimentos-stats [class*="col-"] {
+    display: flex;
+    width: auto;
+  }
+
+}
+
+</style>
+
+<script>
+// Funcionalidade do Carrossel de Depoimentos
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.getElementById('depoimentosCarousel');
+  const prevBtn = document.getElementById('depPrev');
+  const nextBtn = document.getElementById('depNext');
+  const dotsContainer = document.getElementById('depDots');
+  
+  if (!carousel) return;
+  
+  const slides = carousel.querySelectorAll('.depoimento-slide');
+  let currentSlide = 0;
+  
+  // Criar dots
+  function createDots() {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = 'dep-dot';
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+  }
+  
+  // Ir para slide específico
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = index;
+    slides[currentSlide].classList.add('active');
+    
+    // Atualizar dots
+    document.querySelectorAll('.dep-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+  
+  // Próximo slide
+  function nextSlide() {
+    const next = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
+    goToSlide(next);
+  }
+  
+  // Slide anterior
+  function prevSlide() {
+    const prev = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
+    goToSlide(prev);
+  }
+  
+  // Event listeners
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+  
+  // Auto-play
+  let autoplayInterval = setInterval(nextSlide, 5000);
+  
+  // Pausar autoplay ao hover
+  carousel.addEventListener('mouseenter', () => {
+    clearInterval(autoplayInterval);
+  });
+  
+  carousel.addEventListener('mouseleave', () => {
+    autoplayInterval = setInterval(nextSlide, 5000);
+  });
+  
+  // Inicializar
+  createDots();
+  
+  // Teclado
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+});
+</script>

@@ -1,0 +1,228 @@
+/* FESMP - Estilos Base */
+:root {
+  --vermelho-principal: #C1272D;
+  --vermelho-escuro: #A01F24;
+  --verde-institucional: #2D7A3E;
+  --verde-escuro: #1F5A2C;
+  --preto: #1A1A1A;
+  --branco: #FFFFFF;
+  --cinza-claro: #F5F5F5;
+  --cinza-medio: #666666;
+  --cinza-escuro: #333333;
+  --gradiente-vermelho: linear-gradient(135deg, #C1272D 0%, #A01F24 100%);
+  --gradiente-verde: linear-gradient(135deg, #2D7A3E 0%, #1F5A2C 100%);
+  --sombra-leve: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --sombra-media: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --sombra-forte: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --transicao-rapida: 0.2s ease;
+  --transicao-media: 0.3s ease;
+  --transicao-lenta: 0.5s ease;
+  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fonte-titulos: 'Georgia', serif;
+  --container-max: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  color: var(--preto);
+  background-color: var(--branco);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-titulos);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+
+a {
+  color: var(--vermelho-principal);
+  text-decoration: none;
+  transition: var(--transicao-rapida);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--preto);
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--gradiente-vermelho);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.bg-light {
+  background: var(--cinza-claro);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: var(--gradiente-vermelho);
+  color: var(--branco);
+  box-shadow: var(--sombra-media);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-forte);
+  color: var(--branco);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--vermelho-principal);
+  border: 2px solid var(--vermelho-principal);
+}
+
+.btn-outline:hover {
+  background: var(--vermelho-principal);
+  color: var(--branco);
+}
+
+.btn-lg {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.75rem;
+}
+
+.col {
+  flex: 1;
+  padding: 0 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+
+@media (max-width: 768px) {
+  .col, .col-3, .col-4, .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+.col-md-4 { flex: 0 0 33.333%; max-width: 33.333%; }
+.col-md-6 { flex: 0 0 50%; max-width: 50%; }
+
+@media (max-width: 768px) {
+  .col-md-4, .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* ===== ROLLING NUMBERS (ALINHADO) ===== */
+.stat-number.rolling {
+  display: inline-flex;
+  align-items: flex-end;           /* alinha tudo na base */
+  gap: 0;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* janelinha do dígito */
+.rolling-digit {
+  position: relative;
+  width: 0.58em;
+  height: 1.2em;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/* fita de 0 a 9 */
+.rolling-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1.2em;
+  transition: transform 1.4s cubic-bezier(.19, 1, .22, 1);
+  will-change: transform;
+}
+
+.rolling-strip span {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2em;
+}
+
+/* separador de milhar (.) */
+.rolling-sep {
+  display: inline-flex;
+  align-items: flex-end;           /* base igual */
+  height: 1.2em;                   /* mesma altura do dígito */
+  line-height: 1.2em;
+  margin: 0 -0.05em;
+  content: ",";
+}
+
+/* sufixo tipo + ou % */
+.rolling-suffix {
+  display: inline-flex;
+  align-items: flex-end;           /* base igual */
+  height: 1.2em;
+  line-height: 1.2em;
+  margin-left: 0.12em;
+  font-size: 0.9em;
+  opacity: 0.95;
+}
