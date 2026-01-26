@@ -61,45 +61,48 @@
       <div class="depoimentos-dots" id="depDots"></div>
     </div>
     
-    <div class="depoimentos-stats">
-      <div class="row">
-        <div class="col col-6">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <i class="fas fa-trophy"></i>
+        <div class="depoimentos-stats">
+          <div class="row">
+            <div class="col-md-6 col-12">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
+                <div class="stat-label">Alunos Formados</div>
+              </div>
             </div>
-            <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
-            <div class="stat-label">Alunos Formados</div>
-          </div>
-        </div>
-        
-        <div class="col col-6">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <i class="fas fa-star"></i>
+            
+            <div class="col-md-6 col-12">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
+                <div class="stat-label">Cursos Ministrados</div>
+              </div>
             </div>
-            <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
-            <div class="stat-label">Cursos Ministrados</div>
-          </div>
-        </div>
-        
-        <div class="col col-6">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <i class="fas fa-smile"></i>
+            
+            <div class="col-md-6 col-12">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-smile"></i>
+                </div>
+                <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
+                <div class="stat-label">Satisfação</div>
+              </div>
             </div>
-            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
-            <div class="stat-label">Satisfação</div>
-          </div>
-        </div>
 
-        <div class="col col-6">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <i class="fas fa-users"></i>
+            <div class="col-md-6 col-12">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
+                <div class="stat-label">Recomendariam</div>
+              </div>
             </div>
-            <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
-            <div class="stat-label">Recomendariam</div>
+          </div>
           </div>
         </div>
       </div>
@@ -384,16 +387,9 @@
     font-size: 2rem;
   }
 
-  .depoimentos-stats .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .depoimentos-stats [class*="col-"] {
-    display: flex;
-    width: auto;
-  }
-
+  /* Removido: .depoimentos-stats .row { display: flex; flex-wrap: wrap; } */
+  /* Removido: .depoimentos-stats [class*="col-"] { display: flex; width: auto; } */
+  /* Agora o Bootstrap cuida da responsividade com col-lg-6 col-12 */
 }
 
 </style>

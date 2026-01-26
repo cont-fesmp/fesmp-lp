@@ -255,23 +255,23 @@ app.use((err, req, res, next) => {
 // Iniciar servidor
 app.listen(PORT, () => {
   console.log(`
-╔═══════════════════════════════════════════════════════╗
-║                                                       ║
-║        🎓 FESMP - Landing Page Iniciada 🎓           ║
-║                                                       ║
-║  Servidor rodando em: http://localhost:${PORT}         ║
-║  Ambiente: ${process.env.NODE_ENV || 'development'}                      ║
-║                                                       ║
-║  📂 Dados carregados:                                ║
-║     • ${noticias.length} notícias                                  ║
-║     • ${professores.length} professores                               ║
-║     • ${depoimentos.length} depoimentos                               ║
-║     • ${parceiros.length} parceiros                                 ║
-║     • ${cursos.length} cursos                                     ║
-║                                                       ║
-║  Pressione Ctrl+C para parar                         ║
-║                                                       ║
-╚═══════════════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════
+║                                                       
+║        🎓 FESMP - Landing Page Iniciada 🎓           
+║                                                       
+║  Servidor rodando em: http://localhost:${PORT}         
+║  Ambiente: ${process.env.NODE_ENV || 'development'}                     
+║                                                       
+║  📂 Dados carregados:                                
+║     • ${noticias.length} notícias                                  
+║     • ${professores.length} professores                               
+║     • ${depoimentos.length} depoimentos                               
+║     • ${parceiros.length} parceiros                                 
+║     • ${cursos.length} cursos                                    
+║                                                       
+║  Pressione Ctrl+C para parar                         
+║                                                       
+╚═══════════════════════════════════════════════════════
   `);
 });
 
