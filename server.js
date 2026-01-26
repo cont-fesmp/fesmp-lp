@@ -110,6 +110,22 @@ app.get('/portal-aluno', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/login.html#!/');
 });
 
+// Rota para a página MVV (Missão, Valores e Visão)
+app.get('/mvv', (req, res) => {
+  res.render('mvv', {
+    pageTitle: 'Missão, Valores e Visão - FESMP ',
+    // Você pode passar dados dinâmicos aqui se necessário, ex.: missão, valores, visão do banco de dados
+  });
+});
+
+// Rota para a página de Certificado (Autenticador)
+app.get('/certificado', (req, res) => {
+  res.render('certificado', {
+    pageTitle: 'Autenticador de Certificados - FESMP',
+    // Você pode passar dados dinâmicos aqui, ex.: lista de certificados válidos
+  });
+});
+
 // API endpoint para envio de formulário de contato
 app.post('/api/contato', (req, res) => {
   // Aqui você pode implementar o envio de email ou salvar no banco de dados
