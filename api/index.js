@@ -44,8 +44,7 @@ app.get('/', (req, res) => {
   try {
     res.render('index', {
       pageTitle: 'FESMP - Fundação Escola Superior do Ministério Público de Mato Grosso',
-      metaDescription:
-        'Instituição de ensino superior credenciada pelo MEC, oferecendo cursos de pós-graduação com qualidade e tradição em Mato Grosso.',
+      metaDescription: 'Pós-graduações em Direito com compromisso acadêmico, excelência no ensino e formação qualificada para o desenvolvimento profissional jurídico.',
       noticias: noticias.slice(0, 6),
       professores: professores.slice(0, 9),
       depoimentos,
