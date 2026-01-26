@@ -24,6 +24,7 @@ app.set('views', path.join(rootDir, 'views'));
 app.use(express.static(path.join(rootDir, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 function loadJSON(filename) {
   try {
     return require(path.join(rootDir, 'data', filename));
@@ -32,11 +33,13 @@ function loadJSON(filename) {
     return [];
   }
 }
+
 const noticias = loadJSON('noticias.json');
 const professores = loadJSON('professores.json');
 const depoimentos = loadJSON('depoimentos.json');
 const parceiros = loadJSON('parceiros.json');
 const cursos = loadJSON('cursos.json');
+
 app.get('/', (req, res) => {
   try {
     res.render('index', {
@@ -54,6 +57,7 @@ app.get('/', (req, res) => {
     res.status(500).send('Erro ao carregar a página.');
   }
 });
+
 app.get('/noticias', (req, res) => {
   try {
     res.render('noticias', {
@@ -65,6 +69,7 @@ app.get('/noticias', (req, res) => {
     res.redirect('/');
   }
 });
+
 app.get('/contato', (req, res) => {
   try {
     res.render('contato', {
@@ -75,6 +80,29 @@ app.get('/contato', (req, res) => {
     res.redirect('/');
   }
 });
+
+app.get('/certificado', (req, res) => {
+  try {
+    res.render('certificado', {
+      pageTitle: 'Certificado - FESMP',
+      metaDescription: 'Informações sobre certificados da FESMP'
+    });
+  } catch {
+    res.redirect('/');
+  }
+});
+
+app.get('/mvv', (req, res) => {
+  try {
+    res.render('mvv', {
+      pageTitle: 'Missão, Visão e Valores - FESMP',
+      metaDescription: 'Conheça a missão, visão e valores da FESMP'
+    });
+  } catch {
+    res.redirect('/');
+  }
+});
+
 app.get('/matricula', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home');
 });
@@ -82,6 +110,7 @@ app.get('/matricula', (req, res) => {
 app.get('/portal-aluno', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/login.html#!/');
 });
+
 app.post('/api/contato', (req, res) => {
   console.log('Formulário recebido:', req.body);
 
@@ -90,13 +119,16 @@ app.post('/api/contato', (req, res) => {
     message: 'Mensagem recebida com sucesso! Entraremos em contato em breve.'
   });
 });
+
 app.use((req, res) => {
   res.status(404).render('404', {
     pageTitle: 'Página não encontrada - FESMP'
   });
 });
+
 app.use((err, req, res, next) => {
   console.error('Erro:', err.stack);
   res.status(500).send('Erro interno do servidor.');
 });
+
 module.exports = app;
