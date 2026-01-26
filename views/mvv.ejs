@@ -4,64 +4,263 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= pageTitle %></title>
-  <meta name="description" content="<%= metaDescription %>">  <!-- Adicione esta linha para SEO -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/animations.css">
 </head>
 <body>
   <%- include('partials/header') %>
-<main>
-<div class="container mt-5">
-  <h1 class="text-center mb-4">Missão, Valores e Visão da FESMP</h1>
-  
-  <div class="row">
-    <!-- Seção Missão -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          <h5>Missão</h5>
+
+  <!-- Hero Section -->
+  <section class="hero-sobre bg-light">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Sobre a FESMP</h1>
+        <p>Instituição de ensino superior credenciada pelo MEC, dedicada à formação de profissionais do Ministério Público em Mato Grosso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missão, Visão, Valores -->
+  <section class="section mvv-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Missão, Visão e Valores</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mvv-card">
+            <div class="mvv-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Missão</h3>
+            <p>Promover educação jurídica de excelência, formando profissionais íntegros e
+              comprometidos com a justiça, a democracia, os direitos humanos e a
+              sustentabilidade socioambiental, contribuindo para a transformação ética,
+              ecológica e social em Mato Grosso e no Brasil, preparados para o exercício da
+              cidadania e qualificação para o mercado de trabalho</p>
+          </div>
         </div>
-        <div class="card-body">
-          <p>Aqui vai o texto da missão da instituição. Descreva o propósito principal da FESMP, como promover a educação e formação em saúde pública.</p>
-          <!-- Substitua por dados dinâmicos se necessário -->
+        <div class="col-md-4">
+          <div class="mvv-card">
+            <div class="mvv-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <h3>Visão</h3>
+            <p>Ser referência em educação jurídica e socioambiental no Centro-Oeste até 2030,
+              reconhecida nacionalmente pela inovação, pesquisa de impacto e formação de
+              lideranças éticas e transformadoras, comprometidas com a justiça, a democracia, a
+              cidadania e a sustentabilidade.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mvv-card">
+            <div class="mvv-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Valores</h3>
+            <p>Excelência, integridade, justiça social, inovação pedagógica e sustentabilidade em tudo que fazemos.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- História -->
+  <section class="section historia-section bg-light">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nossa História</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="historia-content">
+            <p>A Fundação Escola Superior do Ministério Público de Mato Grosso (FESMP/MT) é uma unidade educacional vinculada à Associação Mato-grossense do Ministério Público e foi instituída como entidade de direito privado sem fins lucrativos, com autonomia administrativa, financeira e patrimonial. Reconhecida atualmente como instituição de utilidade pública municipal (Lei nº 3.967/2000) e estadual (Lei nº 7.392/2001), a FESMP/MT não recebe recursos públicos e não remunera cargos de Diretoria.</p>
+<p>Os estudos para a implantação da FESMP/MT iniciaram-se na segunda gestão da ex-presidente da Associação Mato-grossense do Ministério Público (AMMP), Procuradora de Justiça Lília Alves Ferreira (1991/1993). Em 14 de março de 1994, sob a gestão do Procurador de Justiça Ulysses Ribeiro, as atividades da Fundação Escola tiveram início com a aula inaugural ministrada pelo ex-Procurador Geral de Justiça de Mato Grosso, Luiz Vidal da Fonseca. O primeiro curso oferecido foi o Preparatório à Carreira do Ministério Público.</p>
+<p>Em 2000, sob a direção do Procurador de Justiça Luiz Alberto Esteves Scaloppe, a FESMP/MT promoveu os primeiros cursos de pós-graduação lato sensu em convênio com a Universidade de Cuiabá e a Universidade Federal de Santa Catarina.</p>
+<p>A Fundação Escola Superior do Ministério Público de Mato Grosso possui uma história consolidada de atuação no campo jurídico, com foco na capacitação e aperfeiçoamento de profissionais do Direito. Desde sua instituição a Fundação tem se dedicado à promoção de cursos de pós-graduação lato sensu e cursos de extensão e qualificação, aperfeiçoamento e atualização, visando à capacitação de membros do Ministério Público, servidores administrativos, integrantes de carreiras jurídicas estatais, profissionais de outras carreiras jurídicas, da carreira do magistério e profissionais liberais do direito e de outras áreas, como Engenharias, biologia e outras. Sua trajetória é marcada primordialmente pela realização de atividades de ensino e pesquisa na área do Direito, promovendo intercâmbio e atuando como Fundação de Apoio às atividades de ensino e pesquisa de Instituições de Ensino Superior.</p>
+<p>Ao longo dos anos, a Fundação tem organizado seminários, congressos, simpósios, ciclos de estudos, cursos de extensão, conferências e palestras sobre temas jurídicos e afins, contribuindo significativamente para o aprimoramento cultural e profissional da comunidade jurídica. O apoio ao desenvolvimento de projetos de pesquisa, a promoção de concursos sobre trabalhos jurídicos e a edição de publicações científicas, como a Revista Jurídica do Ministério Público de Mato Grosso, demonstram o compromisso da Fundação com a produção e disseminação do conhecimento.</p>
+            <a href="#contato" class="btn btn-primary">Saiba Mais</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="historia-image">
+            <img src="/images/historia.jpg" alt="História da FESMP" onerror="this.src='/images/galeria/default.png'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipe -->
+  <section class="section equipe-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Galeria dos Ex-Diretores</h2>
+      </div>
+      <div class="row">
+        <% const equipe = [
+          { nome: 'Dr. João Silva', cargo: 'Diretor', foto: '/images/galeria/joao.jpg' },
+          { nome: 'Dra. Maria Santos', cargo: 'Coordenadora', foto: '/images/galeria/maria.jpg' },
+          { nome: 'Prof. Carlos Oliveira', cargo: 'Professor', foto: '/images/galeria/carlos.jpg' }
+        ]; %>
+        <% equipe.forEach(membro => { %>
+        <div class="col-md-4">
+          <div class="equipe-card">
+            <div class="equipe-foto">
+              <img src="<%= membro.foto %>" alt="<%= membro.nome %>" onerror="this.src='/images/galeria/default.png'">
+            </div>
+            <h4><%= membro.nome %></h4>
+            <p><%= membro.cargo %></p>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="section cta-section bg-light">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Entre em Contato</h2>
+        <p>Quer saber mais sobre nossos cursos ou parcerias? Fale conosco!</p>
+        </br>
+        <a href="/contato" class="btn btn-primary btn-lg">Fale Conosco</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Estilos específicos para a página Sobre */
+    .hero-sobre {
+      padding: 5rem 0;
+      text-align: center;
+      background-image: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, transparent 50%),  /* Gradiente overlay leve de baixo para cima (preto semi-transparente) */
+        url('/images/hero-sobre.jpg');  /* Imagem de background grande */
+      background-size: cover;  /* Cobre toda a seção sem distorcer */
+      background-position: center;  /* Centraliza a imagem */
+      background-repeat: no-repeat;  /* Evita repetição */
+      background-attachment: fixed;  /* Efeito parallax opcional (remova se não quiser) */
+      position: relative;  /* Para layering */
+    }
+
+    .hero-sobre h1 {
+      font-size: 3rem;
+      color: var(--branco);  /* Branco para legibilidade sobre o overlay */
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra para destacar o texto */
+    }
+
+    .hero-sobre p {
+      font-size: 1.25rem;
+      color: var(--branco);  /* Branco para legibilidade */
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);  /* Sombra para destacar */
+    }
     
-    <!-- Seção Valores -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header bg-success text-white">
-          <h5>Valores</h5>
-        </div>
-        <div class="card-body">
-          <ul>
-            <li>Integridade</li>
-            <li>Inovação</li>
-            <li>Compromisso com a comunidade</li>
-            <!-- Adicione mais valores conforme necessário -->
-          </ul>
-        </div>
-      </div>
-    </div>
+    .mvv-card {
+      background: var(--branco);
+      padding: 2rem;
+      border-radius: 8px;
+      margin: 0 auto 1rem;
+      box-shadow: var(--sombra-leve);
+      text-align: center;
+      transition: var(--transicao-media);
+      height: 450px; 
+      overflow: hidden;  /* Corta conteúdo excessivo se necessário */
+      display: flex;
+      flex-direction: column;
+      justify-content: top;
+    }
+
+    .mvv-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra-media);
+    }
     
-    <!-- Seção Visão -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header bg-info text-white">
-          <h5>Visão</h5>
-        </div>
-        <div class="card-body">
-          <p>Aqui vai o texto da visão da instituição. Descreva o futuro desejado, como ser referência em formação em saúde pública no Brasil.</p>
-          <!-- Substitua por dados dinâmicos se necessário -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</main>
+    .mvv-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1rem;
+      background: var(--gradiente-verde);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--branco);
+      font-size: 2rem;
+    }
+    
+    .historia-content p {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .historia-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--sombra-leve);
+    }
+    
+    .equipe-card {
+      text-align: center;
+      background: var(--branco);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--sombra-leve);
+    }
+    
+    .equipe-foto {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--verde-institucional);
+    }
+    
+    .equipe-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .cta-content {
+      text-align: center;
+      padding: 3rem 0;
+    }
+    
+    .cta-content h2 {
+      color: var(--verde-escuro);
+      margin-bottom: 1rem;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .hero-sobre h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-sobre p {
+        font-size: 1rem;
+      }
+      
+      .mvv-card {
+        margin-bottom: 2rem;
+      }
+      
+      .equipe-card {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+
   <%- include('partials/footer') %>
   
   <script src="/js/navigation.js"></script>

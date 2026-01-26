@@ -62,47 +62,44 @@
     </div>
     
         <div class="depoimentos-stats">
-          <div class="row">
-            <div class="col-md-6 col-12">
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-trophy"></i>
-                </div>
-                <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
-                <div class="stat-label">Alunos Formados</div>
-              </div>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <img src="/images/formados.png" alt="Ícone de Troféu - Alunos Formados" onerror="this.style.display='none'">
             </div>
-            
-            <div class="col-md-6 col-12">
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
-                <div class="stat-label">Cursos Ministrados</div>
-              </div>
-            </div>
-            
-            <div class="col-md-6 col-12">
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-smile"></i>
-                </div>
-                <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
-                <div class="stat-label">Satisfação</div>
-              </div>
-            </div>
-
-            <div class="col-md-6 col-12">
-              <div class="stat-item">
-                <div class="stat-icon">
-                  <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
-                <div class="stat-label">Recomendariam</div>
-              </div>
-            </div>
+            <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
+            <div class="stat-label">Alunos Formados</div>
           </div>
+        </div>
+        
+        <div class="col-md-6 col-12">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <img src="/images/cursos.png" alt="Cursos Ministrados" onerror="this.style.display='none'">
+            </div>
+            <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
+            <div class="stat-label">Cursos Ministrados</div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-12">
+          <div class="stat-item">  
+            <div class="stat-icon">
+              <img src="/images/satisfacao.png" alt="Satisfação" onerror="this.style.display='none'">
+            </div>
+            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-12">
+          <div class="stat-item">
+            <div class="stat-icon">
+              <img src="/images/recomendam.png" alt="Recomendariam" onerror="this.style.display='none'">
+            </div>
+            <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
+            <div class="stat-label">Recomendariam</div>
           </div>
         </div>
       </div>
@@ -259,7 +256,6 @@
   font-size: 1.5rem;
 }
 
-/* Navegação */
 .depoimentos-navigation {
   display: flex;
   justify-content: center;
@@ -289,11 +285,10 @@
   transform: scale(1.1);
 }
 
-/* Dots */
 .depoimentos-dots {
   display: flex;
   justify-content: center;
-  gap: 1.0rem;
+  gap: 1rem;
   margin-top: 1.5rem;
 }
 
@@ -311,7 +306,6 @@
   transform: scale(1.2);
 }
 
-/* Stats */
 .depoimentos-stats {
   background: var(--branco);
   border-radius: 12px;
@@ -321,25 +315,27 @@
 
 .stat-item {
   text-align: center;
-  padding: 1.0rem;
+  padding: 1rem;
 }
 
 .stat-icon {
   width: 100px;
   height: 100px;
   margin: 0 auto 1rem;
-  background: var(--gradiente-verde);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--branco);
-  font-size: 3rem;
+}
+
+.stat-icon img {
+  width: 100px;  /* Ajuste para o tamanho da imagem dentro do círculo */
+  height: 100px;
+  object-fit: cover;  /* Mantém proporção, corta se necessário */
 }
 
 .stat-number {
-  font-size: 4.0rem;
-  font-weight: 800;
+  font-size: 3.5rem;
+  font-weight: 700;
   color: var(--vermelho-principal);
   margin-bottom: 0.5rem;
 }
@@ -352,11 +348,11 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .depoimento-card {
-    padding: 2rem 1.0rem;
+    padding: 2rem 1rem;
   }
   
   .depoimento-quote {
-    left: 1.0rem;
+    left: 1rem;
   }
   
   .depoimento-text {
@@ -380,18 +376,18 @@
   .stat-icon {
     width: 60px;
     height: 60px;
-    font-size: 1.75rem;
+  }
+  
+  .stat-icon img {
+    width: 35px;
+    height: 35px;
   }
   
   .stat-number {
     font-size: 2rem;
   }
 
-  /* Removido: .depoimentos-stats .row { display: flex; flex-wrap: wrap; } */
-  /* Removido: .depoimentos-stats [class*="col-"] { display: flex; width: auto; } */
-  /* Agora o Bootstrap cuida da responsividade com col-lg-6 col-12 */
 }
-
 </style>
 
 <script>
@@ -407,7 +403,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const slides = carousel.querySelectorAll('.depoimento-slide');
   let currentSlide = 0;
   
-  // Criar dots
   function createDots() {
     dotsContainer.innerHTML = '';
     slides.forEach((_, index) => {
@@ -419,38 +414,30 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Ir para slide específico
   function goToSlide(index) {
     slides[currentSlide].classList.remove('active');
     currentSlide = index;
     slides[currentSlide].classList.add('active');
-    
-    // Atualizar dots
     document.querySelectorAll('.dep-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === currentSlide);
     });
   }
   
-  // Próximo slide
   function nextSlide() {
     const next = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
     goToSlide(next);
   }
   
-  // Slide anterior
   function prevSlide() {
     const prev = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
     goToSlide(prev);
   }
   
-  // Event listeners
   if (prevBtn) prevBtn.addEventListener('click', prevSlide);
   if (nextBtn) nextBtn.addEventListener('click', nextSlide);
   
-  // Auto-play
   let autoplayInterval = setInterval(nextSlide, 5000);
   
-  // Pausar autoplay ao hover
   carousel.addEventListener('mouseenter', () => {
     clearInterval(autoplayInterval);
   });
@@ -459,13 +446,56 @@ document.addEventListener('DOMContentLoaded', function() {
     autoplayInterval = setInterval(nextSlide, 5000);
   });
   
-  // Inicializar
   createDots();
   
-  // Teclado
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') prevSlide();
     if (e.key === 'ArrowRight') nextSlide();
+  });
+});
+
+// Animação dos Contadores com Intersection Observer
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('.stat-number.rolling');
+  
+  if (counters.length === 0) return;
+  
+  function animateCounter(counter) {
+    const target = parseInt(counter.getAttribute('data-counter'), 10);
+    const suffix = counter.getAttribute('data-suffix') || '';
+    let current = 0;
+    const increment = target / 100;
+    const duration = 2000;
+    const stepTime = duration / 100;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      counter.textContent = Math.floor(current) + suffix;
+    }, stepTime);
+  }
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const suffix = counter.getAttribute('data-suffix') || '';
+        counter.textContent = '0' + suffix;
+        animateCounter(counter);
+      }
+    });
+  }, observerOptions);
+  
+  counters.forEach(counter => {
+    observer.observe(counter);
   });
 });
 </script>

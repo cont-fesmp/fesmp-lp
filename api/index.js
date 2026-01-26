@@ -84,7 +84,7 @@ app.get('/certificado', (req, res) => {
   try {
     res.render('certificado', {
       pageTitle: 'Certificado - FESMP',
-      metaDescription: 'Informações sobre certificados da FESMP'
+      metaDescription: 'Informações sobre certificados de cursos de extensão da FESMP'
     });
   } catch {
     res.redirect('/');

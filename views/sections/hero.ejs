@@ -1,111 +1,52 @@
 <section class="hero">
-  <!-- LADO ESQUERDO – CONTEÚDO ATUAL -->
-  <div class="hero-left">
-    <div class="container">
-      <h1 class="hero-title">
-        Excelência em <span class="highlight">Educação Jurídica</span>
-      </h1>
-
-      <span class="hero-badge">
-        <i class="fas fa-certificate"></i>
-        Credenciada pela Portaria Nº 042/2023/GAB/CEE-MT
-      </span>
-
-      <p class="hero-text">
-        Fundação Escola Superior do Ministério Público de Mato Grosso <br />
-        Formando profissionais de destaque com qualidade, tradição e compromisso.
-      </p>
-
-      <div class="hero-actions">
-        <a
-          href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home"
-          class="btn btn-primary btn-lg"
-          target="_blank"
-        >
-          <i class="fas fa-graduation-cap"></i> Faça sua Matrícula
-        </a>
-      </div>
-    </div>
+  <!-- CARROSSEL CENTRALIZADO (AGORA OCUPA TODO O HERO) -->
+  <div class="carousel">
+    <div class="slide active" style="background-image:url('/images/hero/hero1.png')"></div>
+    <div class="slide" style="background-image:url('/images/hero/hero2.png')"></div>
+    <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>
   </div>
 
-  <!-- LADO DIREITO – CARROSSEL -->
-  <div class="hero-right">
-    <div class="carousel">
-      <div class="slide active" style="background-image:url('/images/hero/hero1.png')"></div>
-      <div class="slide" style="background-image:url('/images/hero/hero2.png')"></div>
-      <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>
-    </div>
+  <!-- BOTÃO DE MATRÍCULA SOBREPOSTO NO CENTRO INFERIOR -->
+  <div class="hero-actions">
+    <a
+      href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home"
+      class="btn btn-primary btn-lg"
+      target="_blank"
+    >
+      <i class="fas fa-graduation-cap"></i> Faça sua Matrícula
+    </a>
   </div>
 </section>
 
 <style>
 /* ===== HERO BASE ===== */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: linear-gradient(135deg, #1A1A1A 0%, #2a2a2a 100%);
-  color: white;
-}
-
-/* ===== LEFT (CONTENT) ===== */
-.hero-left {
+  min-height: 80vh;
   display: flex;
   align-items: center;
-  padding: 4rem;
+  justify-content: center;  /* Centraliza o carrossel */
+  position: relative;  /* Para posicionar o botão sobreposto */
+  background: #ffffff;
+  color: white;
+  overflow: hidden;  /* Garante que o carrossel não transborde */
 }
 
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.highlight {
-  color: #C1272D;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: rgba(193, 39, 45, 0.2);
-  border: 2px solid #C1272D;
-  border-radius: 50px;
-  margin-bottom: 2rem;
-}
-
-.hero-text {
-  font-size: 1.25rem;
-  max-width: 700px;
-  margin-bottom: 3rem;
-  opacity: 0.9;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* ===== RIGHT (CAROUSEL) ===== */
-.hero-right {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ===== CAROUSEL (AGORA CENTRALIZADO E OCUPANDO TODO O ESPAÇO) ===== */
 .carousel,
 .slide {
   width: 100%;
   height: 100%;
+  position: absolute;  /* Mantém o efeito de slides sobrepostos */
+  inset: 0;
 }
 
 .slide {
-  position: absolute;
-  inset: 0;
   background-size: cover;
-  background-position: right center; /* Alterado para alinhar à direita */
+  background-position: center;  /* Centralizado para melhor foco */
   opacity: 0;
-  transform: scale(1.05);
   transition: opacity 1s ease-in-out, transform 6s ease;
+  border-radius: 50px;  /* Bordas arredondadas nas imagens */
+  overflow: hidden;  /* Garante que as bordas arredondadas sejam aplicadas */
 }
 
 .slide.active {
@@ -113,37 +54,27 @@
   transform: scale(1);
 }
 
-.overlay {
+/* ===== BOTÃO DE MATRÍCULA SOBREPOSTO ===== */
+.hero-actions {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    270deg,
-    rgba(0,0,0,0.65),
-    rgba(0,0,0,0.15)
-  );
+  bottom: 4rem;  /* Posicionado no centro inferior */
+  left: 50%;
+  transform: translateX(-50%);  /* Centraliza horizontalmente */
+  z-index: 10;  /* Fica acima do carrossel */
 }
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-right {
-    height: 40vh;
-  }
-
-  .hero-left {
-    padding: 2rem;
-    text-align: center;
+    min-height: 80vh;  /* Reduz altura em mobile para não ocupar tanto espaço */
   }
 
   .hero-actions {
-    justify-content: center;
+    bottom: 2rem;  /* Ajusta posição em mobile */
   }
 
-  .hero-title {
-    font-size: 2.4rem;
+  .slide {
+    border-radius: 10px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
   }
 }
 </style>

@@ -18,7 +18,7 @@
   --transicao-media: 0.6s ease;
   --transicao-lenta: 1.0s ease;
   --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --fonte-titulos: 'Georgia', serif;
+  --fonte-titulos: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --container-max: 1200px;
 }
 
