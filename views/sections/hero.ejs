@@ -28,7 +28,8 @@
 <style>
 /* ===== HERO BASE ===== */
 .hero {
-  min-height: 80vh;
+  max-width: 1200px;  /* ADICIONADO: Limita largura máxima do site para evitar overflow */
+  aspect-ratio: 16/9;  /* Força proporção 16:9 baseada na escala 1600x900 das imagens */
   display: flex;
   align-items: center;
   justify-content: center;  /* Centraliza o carrossel */
@@ -36,6 +37,8 @@
   background: #ffffff;
   color: white;
   overflow: hidden;  /* Garante que o carrossel não transborde */
+  width: 100%;  /* Largura total até o max-width */
+  margin: 0 auto;  /* Centraliza horizontalmente no site */
 }
 
 /* ===== CAROUSEL (AGORA CENTRALIZADO E OCUPANDO TODO O ESPAÇO) ===== */
@@ -48,7 +51,7 @@
 }
 
 .slide {
-  background-size: cover;  /* Muda para 'contain' se quiser fit sem cortes (manterá proporção, mas pode deixar espaços) */
+  background-size: cover;  /* Mantém cover para cobrir, mas ajustável para contain se quiser sem cortes */
   background-position: center;  /* Centralizado para melhor foco */
   background-repeat: no-repeat;  /* Evita repetição da imagem */
   opacity: 0;
@@ -80,14 +83,14 @@
   display: flex;
   gap: 0.5rem;  /* Espaço entre bullets */
   z-index: 10;  /* Fica acima do carrossel */
-  background-color: rgba(255, 255, 255, 0.9);  /* ADICIONADO: Fundo branco semi-transparente maior atrás dos bullets */
+  background-color: rgba(255, 255, 255, 0.9);  /* Fundo branco semi-transparente maior atrás dos bullets */
   padding: 0.5rem 1rem;  /* Espaço interno para o fundo maior */
   border-radius: 25px;  /* Arredondado para combinar com o estilo */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Opcional: Sombra leve para destaque */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra leve para destaque */
 }
 
 .bullet {
-  width: 20px;
+  width: 20px;  /* Mantido seu ajuste: maior em desktop */
   height: 20px;
   background-color: #ffffff;  /* Fundo branco */
   border: 2px solid #ff0000;  /* Borda vermelha */
@@ -108,7 +111,9 @@
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .hero {
-    min-height: 60vh;  /* Menos altura em mobile para melhor escalamento das imagens */
+    max-width: 100%;  /* Em mobile, largura total para responsividade */
+    aspect-ratio: 16/9;  /* Mantém proporção 16:9 */
+    min-height: 40vh;  /* AJUSTADO: Altura menor em mobile para espaço, mas aspect-ratio prioriza */
   }
 
   .hero-actions {
@@ -121,7 +126,7 @@
   }
 
   .bullet {
-    width: 15px;  /* Menor em mobile */
+    width: 15px;  /* Mantido seu ajuste: menor em mobile */
     height: 15px;
   }
 
@@ -134,7 +139,8 @@
 /* Media query para tablets (opcional, mas ajuda na transição) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero {
-    min-height: 70vh;  /* Ajuste intermediário para tablets */
+    max-width: 1200px;  /* Mantém limite em tablets */
+    aspect-ratio: 16/9;
   }
 }
 </style>
