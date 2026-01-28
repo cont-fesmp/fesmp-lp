@@ -28,7 +28,7 @@
 <style>
 /* ===== HERO BASE ===== */
 .hero {
-  max-width: 1200px;  /* ADICIONADO: Limita largura máxima do site para evitar overflow */
+  max-width: 1200px;  /* Limita largura máxima do site para evitar overflow */
   aspect-ratio: 16/9;  /* Força proporção 16:9 baseada na escala 1600x900 das imagens */
   display: flex;
   align-items: center;
@@ -113,15 +113,20 @@
   .hero {
     max-width: 100%;  /* Em mobile, largura total para responsividade */
     aspect-ratio: 16/9;  /* Mantém proporção 16:9 */
-    min-height: 30vh;  /* AJUSTADO: Altura menor em mobile para espaço, mas aspect-ratio prioriza */
+    min-height: 40vh;  /* Altura menor em mobile para espaço, mas aspect-ratio prioriza */
   }
 
   .hero-actions {
-    bottom: 4rem;  /* Levantado em mobile para espaço aos bullets */
+    bottom: 0.5rem;  /* AJUSTADO: Move para logo abaixo do carrossel (final inferior) em mobile */
+  }
+
+  .hero-actions .btn {
+    font-size: 0.8rem;  /* REFORÇADO: Fonte ainda menor para botão compacto */
+    padding: 0.4rem 0.8rem;  /* REFORÇADO: Padding reduzido para tamanho menor */
   }
 
   .carousel-bullets {
-    bottom: 1rem;  /* Ajusta posição em mobile */
+    bottom: 3rem;  /* AJUSTADO: Move para cima para dar espaço ao botão abaixo */
     padding: 0.4rem 0.8rem;  /* Padding menor em mobile */
   }
 
@@ -132,7 +137,7 @@
 
   .slide {
     border-radius: 10px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
-    background-size: contain;  /* Mantém cover, mas se quiser sem cortes, mude para 'contain' aqui */
+    background-size: contain;  /* Muda para contain em mobile para evitar cortes (manterá proporção, pode deixar espaços) */
   }
 }
 
