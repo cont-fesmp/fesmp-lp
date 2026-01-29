@@ -110,9 +110,9 @@ app.get('/portal-aluno', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/login.html#!/');
 });
 
-// Rota para a página MVV (Missão, Valores e Visão)
-app.get('/mvv', (req, res) => {
-  res.render('mvv', {
+// Rota para a página SOBRE (Missão, Valores e Visão)
+app.get('/sobre', (req, res) => {
+  res.render('sobre', {
     pageTitle: 'Missão, Valores e Visão - FESMP ',
     // Você pode passar dados dinâmicos aqui se necessário, ex.: missão, valores, visão do banco de dados
   });

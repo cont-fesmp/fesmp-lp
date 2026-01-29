@@ -91,9 +91,9 @@ app.get('/certificado', (req, res) => {
   }
 });
 
-app.get('/mvv', (req, res) => {
+app.get('/sobre', (req, res) => {
   try {
-    res.render('mvv', {
+    res.render('sobre', {
       pageTitle: 'Missão, Visão e Valores - FESMP',
       metaDescription: 'Conheça a missão, visão e valores da FESMP'
     });

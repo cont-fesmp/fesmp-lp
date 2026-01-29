@@ -60,57 +60,13 @@
       
       <div class="depoimentos-dots" id="depDots"></div>
     </div>
-    
-        <div class="depoimentos-stats">
-      <div class="row">
-        <div class="col-md-6 col-12">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <img src="/images/formados.png" alt="Ícone de Troféu - Alunos Formados" onerror="this.style.display='none'">
-            </div>
-            <div class="stat-number rolling" data-counter="3600" data-suffix="+"></div>
-            <div class="stat-label">Alunos Formados</div>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-12">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <img src="/images/cursos.png" alt="Cursos Ministrados" onerror="this.style.display='none'">
-            </div>
-            <div class="stat-number rolling" data-counter="100" data-suffix="+"></div>
-            <div class="stat-label">Cursos Ministrados</div>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-12">
-          <div class="stat-item">  
-            <div class="stat-icon">
-              <img src="/images/satisfacao.png" alt="Satisfação" onerror="this.style.display='none'">
-            </div>
-            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
-            <div class="stat-label">Satisfação</div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-12">
-          <div class="stat-item">
-            <div class="stat-icon">
-              <img src="/images/recomendam.png" alt="Recomendariam" onerror="this.style.display='none'">
-            </div>
-            <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
-            <div class="stat-label">Recomendariam</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 <style>
 /* === DEPOIMENTOS SECTION === */
 .depoimentos-bg {
-  background: var(--cinza-claro);
+  background: var(--verde-claro-suporte);
   position: relative;
   overflow: hidden;
 }
@@ -306,45 +262,6 @@
   transform: scale(1.2);
 }
 
-.depoimentos-stats {
-  background: var(--branco);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: var(--sombra-leve);
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1rem;
-}
-
-.stat-icon {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stat-icon img {
-  width: 100px;  /* Ajuste para o tamanho da imagem dentro do círculo */
-  height: 100px;
-  object-fit: cover;  /* Mantém proporção, corta se necessário */
-}
-
-.stat-number {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--vermelho-principal);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  color: var(--cinza-medio);
-  font-size: 1.5rem;
-}
-
 /* Responsividade */
 @media (max-width: 768px) {
   .depoimento-card {
@@ -369,24 +286,6 @@
     height: 100px;
   }
   
-  .stat-item {
-    margin-bottom: 1.5rem;
-  }
-  
-  .stat-icon {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .stat-icon img {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-
 }
 </style>
 
@@ -454,48 +353,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Animação dos Contadores com Intersection Observer
-document.addEventListener('DOMContentLoaded', function() {
-  const counters = document.querySelectorAll('.stat-number.rolling');
-  
-  if (counters.length === 0) return;
-  
-  function animateCounter(counter) {
-    const target = parseInt(counter.getAttribute('data-counter'), 10);
-    const suffix = counter.getAttribute('data-suffix') || '';
-    let current = 0;
-    const increment = target / 100;
-    const duration = 2000;
-    const stepTime = duration / 100;
-    
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      counter.textContent = Math.floor(current) + suffix;
-    }, stepTime);
-  }
-  
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const counter = entry.target;
-        const suffix = counter.getAttribute('data-suffix') || '';
-        counter.textContent = '0' + suffix;
-        animateCounter(counter);
-      }
-    });
-  }, observerOptions);
-  
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
+
 </script>

@@ -49,8 +49,24 @@
   </main>
   
   <%- include('partials/footer') %>
+
+    <div id="whatsapp-button">
+      <a href="https://wa.me/556596581800?text=Acessei%20o%20site%20https://www.fundcacaoescola.org.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="75" height="75">
+      </a>
+    </div>
   
   <script src="/js/navigation.js"></script>
   <script src="/js/animations.js"></script>
-</body>
+  <script>
+    window.onload = () => {
+      const button = document.getElementById('whatsapp-button');
+      button.style.opacity = '0';
+      setTimeout(() => {
+        button.style.transition = 'opacity 0.5s';
+        button.style.opacity = '1';
+      }, 1000); // Aparece após 1 segundo
+    };
+  </script>
+  </body>
 </html>

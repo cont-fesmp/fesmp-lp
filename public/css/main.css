@@ -4,6 +4,7 @@
   --vermelho-escuro: #A01F24;
   --verde-institucional: #2D7A3E;
   --verde-escuro: #1F5A2C;
+  --verde-claro-suporte: #E3EFE6;
   --preto: #1A1A1A;
   --branco: #FFFFFF;
   --cinza-claro: #F5F5F5;
@@ -74,7 +75,7 @@ a {
 
 .section-title h2 {
   font-size: 2.5rem;
-  color: var(--verde-escuro);
+  color: var(--vermelho-escuro);
   margin-bottom: 1rem;
 }
 
@@ -89,7 +90,7 @@ a {
 }
 
 .bg-light {
-  background: var(--cinza-claro);
+  background: var(--verde-claro-suporte);
 }
 
 .btn {
@@ -225,4 +226,21 @@ a {
   margin-left: 0.12em;
   font-size: 0.9em;
   opacity: 0.95;
+}
+
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px; /* Distância do fundo da tela */
+  right: 20px;  /* Distância da direita da tela */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  cursor: pointer;
+}
+
+#whatsapp-button img {
+  transition: transform 0.3s; /* Animação suave ao passar o mouse */
+  background: transparent; 
+}
+
+#whatsapp-button img:hover {
+  transform: scale(1.2); 
 }

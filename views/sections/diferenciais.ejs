@@ -31,5 +31,134 @@
         <p style="color: #666;">Comprometidos e dedicados com foco no desenvolvimento dos alunos.</p>
       </div>
     </div>
+</div>
+
+<div class="depoimentos-stats">
+      <div class="row">
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-number rolling" data-counter="10000" data-suffix="+"></div>
+            <div class="stat-label">Alunos Formados</div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-number rolling" data-counter="200" data-suffix="+"></div>
+            <div class="stat-label">Cursos Ministrados</div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="stat-item">  
+            <div class="stat-number rolling" data-counter="98" data-suffix="%"></div>
+            <div class="stat-label">Satisfação</div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="stat-item">
+            <div class="stat-number rolling" data-counter="97" data-suffix="%"></div>
+            <div class="stat-label">Recomendariam</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+
+.depoimentos-stats {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--sombra-media);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.stat-number {
+  font-size: 4.0rem;
+  font-weight: 800;
+  color: var(--vermelho-principal);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--cinza-medio);
+  font-size: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  
+  .stat-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .stat-icon img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+</style>
+
+<script>
+// Animação dos Contadores com Intersection Observer
+document.addEventListener('DOMContentLoaded', function() {
+  const counters = document.querySelectorAll('.stat-number.rolling');
+  
+  if (counters.length === 0) return;
+  
+  function animateCounter(counter) {
+    const target = parseInt(counter.getAttribute('data-counter'), 10);
+    const suffix = counter.getAttribute('data-suffix') || '';
+    let current = 0;
+    const increment = target / 100;
+    const duration = 2000;
+    const stepTime = duration / 100;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      counter.textContent = Math.floor(current) + suffix;
+    }, stepTime);
+  }
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const suffix = counter.getAttribute('data-suffix') || '';
+        counter.textContent = '0' + suffix;
+        animateCounter(counter);
+      }
+    });
+  }, observerOptions);
+  
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+});
+</script>
