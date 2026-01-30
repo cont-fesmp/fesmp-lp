@@ -6,58 +6,62 @@
   </div>
   
   <!-- Container do Carrossel Swiper -->
-  <div class="swiper-container cursos-carousel">
-    <div class="swiper-wrapper">
-      <% cursos.forEach(curso => { %>
-      <div class="swiper-slide">
-        <div class="curso-card <%= curso.destaque ? 'destaque' : '' %>">
-          <% if (curso.destaque) { %>
-          <div class="curso-badge">
-            <i class="fas fa-star"></i>
-            Destaque
-          </div>
-          <% } %>
-          
-          <div class="curso-image">
-            <img src="<%= curso.imagem %>" 
-                 alt="<%= curso.nome %>"
-                 onerror="this.src='/images/cursos/default.jpg'">
-            <div class="curso-overlay">
-              <span class="curso-modalidade">
-                <i class="fas fa-map-marker-alt"></i>
-                <%= curso.modalidade %>
-              </span>
+  <div class="swiper-container-wrapper">
+    <!-- Botões de navegação fixos ao lado -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-container cursos-carousel">
+      <div class="swiper-wrapper">
+        <% cursos.forEach(curso => { %>
+        <div class="swiper-slide">
+          <div class="curso-card <%= curso.destaque ? 'destaque' : '' %>">
+            <% if (curso.destaque) { %>
+            <div class="curso-badge">
+              <i class="fas fa-star"></i>
+              Destaque
             </div>
-          </div>
-          
-          <div class="curso-body">
-            <h3 class="curso-title"><%= curso.nome %></h3>
-            <p class="curso-description"><%= curso.descricao %></p>
+            <% } %>
             
-            <div class="curso-info">
-              <div class="curso-info-item">
-                <i class="fas fa-clock"></i>
-                <span><%= curso.duracao %></span>
-              </div>
-              <div class="curso-info-item">
-                <i class="fas fa-book"></i>
-                <span><%= curso.cargaHoraria %></span>
+            <div class="curso-image">
+              <img src="<%= curso.imagem %>" 
+                  alt="<%= curso.nome %>"
+                  onerror="this.src='/images/cursos/default.jpg'">
+              <div class="curso-overlay">
+                <span class="curso-modalidade">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <%= curso.modalidade %>
+                </span>
               </div>
             </div>
             
-            <div class="curso-footer">
-              <a href="#contato" class="btn btn-primary btn-block">
-                <i class="fas fa-graduation-cap"></i>
-                Saiba Mais
-              </a>
+            <div class="curso-body">
+              <h3 class="curso-title"><%= curso.nome %></h3>
+              <p class="curso-description"><%= curso.descricao %></p>
+              
+              <div class="curso-info">
+                <div class="curso-info-item">
+                  <i class="fas fa-clock"></i>
+                  <span><%= curso.duracao %></span>
+                </div>
+                <div class="curso-info-item">
+                  <i class="fas fa-book"></i>
+                  <span><%= curso.cargaHoraria %></span>
+                </div>
+              </div>
+              
+              <div class="curso-footer">
+                <a href="#contato" class="btn btn-primary btn-block">
+                  Saiba Mais
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </div>
   </div>
-  
+
     <div class="cursos-cta">
     <div class="cursos-cta-content">
     <div class="cursos-cta-text">
@@ -271,10 +275,45 @@
   width: 100%;
 }
 
+/* Wrapper para alinhar setas e container */
+.swiper-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo das setas fixas */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #C1272D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.swiper-button-prev {
+  left: -60px;  /* À esquerda */
+}
+
+.swiper-button-next {
+  right: -60px;  /* À direita */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .curso-card {
-    margin-bottom: 1.5rem;
+    transform: scale(0.7); 
+    margin-bottom: 1rem; 
   }
   
   .curso-title {
@@ -310,6 +349,21 @@
 
   .swiper-container {
     padding: 10px 0;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 10px;
+    height: 10px;
+    left: -20px;
+    right: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-button-prev, 
+  .swiper-button-next {
+    display: none; 
   }
 }
 </style>
