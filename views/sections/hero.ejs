@@ -76,16 +76,16 @@
 /* ===== BULLETS DE CONTROLE ===== */
 .carousel-bullets {
   position: absolute;
-  bottom: 2rem;  /* Posicionado abaixo do botão */
+  bottom: 2rem; 
   left: 50%;
-  transform: translateX(-50%);  /* Centraliza horizontalmente */
+  transform: translateX(-50%);  
   display: flex;
-  gap: 0.5rem;  /* Espaço entre bullets */
-  z-index: 10;  /* Fica acima do carrossel */
-  background-color: rgba(255, 255, 255, 0.9);  /* Fundo branco semi-transparente maior atrás dos bullets */
-  padding: 0.5rem 1rem;  /* Espaço interno para o fundo maior */
-  border-radius: 25px;  /* Arredondado para combinar com o estilo */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra leve para destaque */
+  gap: 0.5rem;  
+  z-index: 10;  
+  background-color: rgba(255, 255, 255, 0.9);  
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .bullet {
@@ -111,8 +111,8 @@
 @media (max-width: 768px) {
   .hero {
     max-width: 100%;  /* Em mobile, largura total para responsividade */
-    aspect-ratio: 16/9;  /* Mantém proporção 16:9 */
-    min-height: 40vh;  /* Altura menor em mobile para espaço, mas aspect-ratio prioriza */
+    aspect-ratio: 3/1;  
+    min-height: 30vh; 
   }
 
   .hero-actions {
@@ -120,7 +120,7 @@
   }
 
   .hero-actions .btn {
-    font-size: 0.8rem;  /* REFORÇADO: Fonte ainda menor para botão compacto */
+    font-size: 0.6rem;  /* REFORÇADO: Fonte ainda menor para botão compacto */
     padding: 0.4rem 0.8rem;  /* REFORÇADO: Padding reduzido para tamanho menor */
   }
 
@@ -130,8 +130,8 @@
   }
 
   .bullet {
-    width: 15px;  /* Mantido seu ajuste: menor em mobile */
-    height: 15px;
+    width: 12px;  /* Mantido seu ajuste: menor em mobile */
+    height: 12px;
   }
 
   .slide {
@@ -144,7 +144,7 @@
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero {
     max-width: 1200px;  /* Mantém limite em tablets */
-    aspect-ratio: 16/9;
+    aspect-ratio: 3/1;
   }
 }
 </style>

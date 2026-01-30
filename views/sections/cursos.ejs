@@ -58,12 +58,11 @@
     </div>
   </div>
   
-  <!-- Restante do código (CTA) permanece igual -->
     <div class="cursos-cta">
     <div class="cursos-cta-content">
     <div class="cursos-cta-text">
     <h3>Não encontrou o curso ideal?</h3>
-    <p>Entre em contato conosco e saiba mais sobre outras especializações disponíveis</p>
+    <p>Entre em contato conosco e saiba mais sobre outras especializações e cursos de extensão disponíveis</p>
     </div>
     <div class="cursos-cta-action">
     <a href="#contato" class="btn btn-secondary btn-lg">
@@ -241,30 +240,35 @@
   transform: translateY(-2px);
 }
 
-/* Estilos para o Carrossel Swiper */
 .swiper-container {
   width: 100%;
   padding: 20px 0;
 }
 
 .swiper-slide {
-  height: auto;  /* Permite altura variável dos cards */
+  height: auto; 
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--vermelho-principal);  /* Cor das setas */
+.cursos-carousel .swiper-slide {
+  display: flex;
+  justify-content: center;
 }
 
-.swiper-pagination-bullet-active {
-  background: var(--vermelho-principal);  /* Cor da paginação ativa */
+.curso-card {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-/* Responsividade extra */
-@media (max-width: 768px) {
-  .swiper-container {
-    padding: 10px 0;
-  }
+.cursos-carousel {
+  max-width: 1200px;  
+  margin: 0 auto;   
+  overflow: hidden; 
+  position: relative;
+}
+
+.container .cursos-carousel {
+  width: 100%;
 }
 
 /* Responsividade */
@@ -299,43 +303,13 @@
   .cursos-cta-action .btn {
     width: 100%;
   }
-/* === AJUSTES PARA O CARROSSEL === */
-.cursos-carousel .swiper-slide {
-  display: flex;
-  justify-content: center;  /* Centraliza o card no slide */
-}
 
-.curso-card {
-  max-width: 360px;  /* Limita a largura máxima como no Bootstrap (aprox. 400px) */
-  width: 100%;       /* Permite que o card ocupe o espaço disponível até o max-width */
-  margin: 0 auto;    /* Centraliza horizontalmente */
-  /* Mantenha o resto do seu CSS original para .curso-card */
-}
-
-/* Responsividade: Ajuste para telas menores */
-@media (max-width: 768px) {
   .curso-card {
-    max-width: 100%;  /* Em mobile, ocupa toda a largura disponível */
+    max-width: 100%;
   }
-}
 
-@media (min-width: 769px) and (max-width: 1199px) {
-  .curso-card {
-    max-width: 250px;  /* Em telas médias, um pouco menor para caber melhor */
+  .swiper-container {
+    padding: 10px 0;
   }
-}
-/* === CONTAINER DO CARROSSEL === */
-.cursos-carousel {
-  max-width: 1200px;  /* Limita à largura máxima da página (igual ao .container Bootstrap) */
-  margin: 0 auto;     /* Centraliza o carrossel horizontalmente */
-  overflow: hidden;   /* Corta qualquer excesso horizontal (cards "sumissem" nas bordas) */
-  position: relative; /* Mantém setas e paginação posicionadas */
-}
-
-/* Garante que o .container envolvente não interfira */
-.container .cursos-carousel {
-  width: 100%;  /* Ocupa 100% do .container, mas respeita o max-width acima */
-}
-
 }
 </style>
