@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/animations.css">
 </head>
@@ -29,8 +30,8 @@
       <div class="section-title">
         <h2>Missão, Visão e Valores</h2>
       </div>
-      <div class="row">
-        <div class="col-md-4">
+      <div class="row gx-4">
+        <div class="col-md-4 ">
           <div class="mvv-card">
             <div class="mvv-icon">
               <i class="fas fa-bullseye"></i>
@@ -74,14 +75,12 @@
       <div class="section-title">
         <h2>Nossa História</h2>
       </div>
-      <div class="row">
+      <div class="row gx-4">
         <div class="col-md-6">
           <div class="historia-content">
             <p>A Fundação Escola Superior do Ministério Público de Mato Grosso (FESMP/MT) é uma unidade educacional vinculada à Associação Mato-grossense do Ministério Público e foi instituída como entidade de direito privado sem fins lucrativos, com autonomia administrativa, financeira e patrimonial. Reconhecida atualmente como instituição de utilidade pública municipal (Lei nº 3.967/2000) e estadual (Lei nº 7.392/2001), a FESMP/MT não recebe recursos públicos e não remunera cargos de Diretoria.</p>
 <p>Os estudos para a implantação da FESMP/MT iniciaram-se na segunda gestão da ex-presidente da Associação Mato-grossense do Ministério Público (AMMP), Procuradora de Justiça Lília Alves Ferreira (1991/1993). Em 14 de março de 1994, sob a gestão do Procurador de Justiça Ulysses Ribeiro, as atividades da Fundação Escola tiveram início com a aula inaugural ministrada pelo ex-Procurador Geral de Justiça de Mato Grosso, Luiz Vidal da Fonseca. O primeiro curso oferecido foi o Preparatório à Carreira do Ministério Público.</p>
 <p>Em 2000, sob a direção do Procurador de Justiça Luiz Alberto Esteves Scaloppe, a FESMP/MT promoveu os primeiros cursos de pós-graduação lato sensu em convênio com a Universidade de Cuiabá e a Universidade Federal de Santa Catarina.</p>
-<p>A Fundação Escola Superior do Ministério Público de Mato Grosso possui uma história consolidada de atuação no campo jurídico, com foco na capacitação e aperfeiçoamento de profissionais do Direito. Desde sua instituição a Fundação tem se dedicado à promoção de cursos de pós-graduação lato sensu e cursos de extensão e qualificação, aperfeiçoamento e atualização, visando à capacitação de membros do Ministério Público, servidores administrativos, integrantes de carreiras jurídicas estatais, profissionais de outras carreiras jurídicas, da carreira do magistério e profissionais liberais do direito e de outras áreas, como Engenharias, biologia e outras. Sua trajetória é marcada primordialmente pela realização de atividades de ensino e pesquisa na área do Direito, promovendo intercâmbio e atuando como Fundação de Apoio às atividades de ensino e pesquisa de Instituições de Ensino Superior.</p>
-<p>Ao longo dos anos, a Fundação tem organizado seminários, congressos, simpósios, ciclos de estudos, cursos de extensão, conferências e palestras sobre temas jurídicos e afins, contribuindo significativamente para o aprimoramento cultural e profissional da comunidade jurídica. O apoio ao desenvolvimento de projetos de pesquisa, a promoção de concursos sobre trabalhos jurídicos e a edição de publicações científicas, como a Revista Jurídica do Ministério Público de Mato Grosso, demonstram o compromisso da Fundação com a produção e disseminação do conhecimento.</p>
             <a href="#contato" class="btn btn-primary">Saiba Mais</a>
           </div>
         </div>
@@ -100,7 +99,7 @@
       <div class="section-title">
         <h2>Galeria dos Ex-Diretores</h2>
       </div>
-      <div class="row">
+      <div class="row gx-4">
         <% const equipe = [
           { nome: 'Dr. João Silva', cargo: 'Diretor', foto: '/images/galeria/joao.jpg' },
           { nome: 'Dra. Maria Santos', cargo: 'Coordenadora', foto: '/images/galeria/maria.jpg' },
@@ -129,7 +128,7 @@
         <h2>Entre em Contato</h2>
         <p>Quer saber mais sobre nossos cursos ou parcerias? Fale conosco!</p>
         </br>
-        <a href="/contato" class="btn btn-primary btn-lg">Fale Conosco</a>
+        <a href="/#contato" class="btn btn-primary btn-lg">Fale Conosco</a>
       </div>
     </div>
   </section>
@@ -167,7 +166,7 @@
     .mvv-card {
       background: var(--branco);
       padding: 2rem;
-      border-radius: 8px;
+      border-radius: 12px;
       margin: 0 auto 1rem;
       box-shadow: var(--sombra-leve);
       text-align: center;
@@ -197,15 +196,15 @@
       font-size: 2rem;
     }
     
+    /* Justificar texto na seção História */
     .historia-content p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
+      text-align: justify;  /* Justifica o texto (alinha às margens esquerda e direita) */
+      text-justify: inter-word;  /* Melhora a distribuição de palavras (opcional, para melhor aparência) */
+      hyphens: auto;  /* Permite hífens automáticos em quebras de linha (opcional) */
     }
-    
+
     .historia-image img {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: var(--sombra-leve);
     }
     
     .equipe-card {

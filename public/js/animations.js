@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== CONFIGURAÇÃO =====
   const animationConfig = {
-    threshold: 0.15, // 25% do elemento visível para animar
+    threshold: 0.15,
     rootMargin: '0px'
   };
   
@@ -32,9 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const elements = document.querySelectorAll(selector);
     allElements = [...allElements, ...elements];
   });
+
   
   console.log(`📊 Encontrados ${allElements.length} elementos para animar`);
   
+
+
   // ===== INTERSECTION OBSERVER =====
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -54,20 +57,28 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }, animationConfig);
-  
-  // ===== APLICAR ESTILOS INICIAIS E OBSERVAR =====
-  allElements.forEach((element, index) => {
-    // Estado inicial (invisível e deslocado)
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    
-    // Começar a observar
-    observer.observe(element);
-  });
+
   
   console.log('👀 Observando elementos...');
   
+// ===== APLICAR ESTILOS INICIAIS E OBSERVAR =====
+allElements.forEach((element, index) => {
+  // Verifica se o elemento tem a classe 'no-animate' (exceção)
+  if (element.classList.contains('no-animate')) {
+    console.log('🚫 Elemento pulado (exceção):', element.tagName, element.className);
+    return; // Pula este elemento, não aplica animação
+  }
+  
+  // Estado inicial (invisível e deslocado)
+  element.style.opacity = '0';
+  element.style.transform = 'translateY(30px)';
+  element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  
+  // Começar a observar
+  observer.observe(element);
+});
+
+
   // ===== ANIMAÇÕES DE HOVER PARA CARDS =====
   const cards = document.querySelectorAll('.diferencial-card, .curso-card, .professor-card, .parceiro-item');
   
@@ -223,25 +234,30 @@ counters.forEach(counter => {
     console.log(`🔢 ${counters.length} contadores configurados`);
   }
   
-  // ===== SCROLL SUAVE PARA LINKS =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#' || href === '') return;
+// ===== SCROLL SUAVE PARA LINKS =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '') return;
+    
+    const section = document.querySelector(href);
+    if (section) {
+      e.preventDefault();
       
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const headerHeight = document.querySelector('.header')?.offsetHeight || 140;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
+      // Calcula a posição do topo da seção
+      const headerHeight = document.querySelector('.header')?.offsetHeight || 92;
+      const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+      const targetPosition = sectionTop - headerHeight - 10;  // -10px extra para margem (ajuste se necessário)
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+      
+      console.log('🔗 Scroll para topo da seção:', href, 'Posição:', targetPosition, 'Header Height:', headerHeight);
+    }
   });
+});
   
   console.log('✅ Sistema de animações ativo!');
   console.log('📌 Faça scroll para ver as animações acontecerem');

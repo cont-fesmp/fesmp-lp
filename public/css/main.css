@@ -60,7 +60,7 @@ a {
 
 .container {
   max-width: var(--container-max);
-  margin: 0 auto;
+  margin: 0.5rem auto;
   padding: 0 1.5rem;
 }
 

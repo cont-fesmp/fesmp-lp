@@ -8,10 +8,12 @@
             <i class="fas fa-check-circle"></i>
             Credenciamento Oficial
           </span>
-          <h2 class="emec-title">
-            Fundação Escola Superior do<br>
-            <span class="highlight">Ministério Público de Mato Grosso</span>
-          </h2>
+                  <div style="display: flex; align-items: center; gap: 1rem;">
+  <img src="/images/logo/logo-fesmp.png" 
+       alt="Logo FESMP" 
+       style="height: 8vw; max-height: 120px; min-height: 60px; width: auto;" 
+       onerror="this.style.display='none'">
+</div>
           <p class="emec-text">
             Nossa instituição é credenciada pelo Conselho Estadual de Educação por meio da 
             <strong>Portaria nº 042 de 4 de julho de 2023</strong>, garantindo a validade de todos os nossos certificados de pós-graduação.
@@ -249,22 +251,36 @@
   gap: 0.5rem;
 }
 
-/* QR Code */
+/* QR Code responsivo e centralizado */
 .emec-qrcode {
-  text-align: center;
+  text-align: center;  /* Centraliza o texto e o placeholder */
   padding-top: 0.5rem;
   border-top: 2px solid var(--cinza-claro);
 }
 
 .qrcode-placeholder {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto 1rem;
+  width: 100%;          /* Ocupa 100% da largura do card */
+  max-width: 300px;     /* Limita largura máxima */
+  height: 0;            /* Altura inicial 0 para aspect-ratio */
+  padding-bottom: 100%; /* Aspect-ratio 1:1 (quadrado) */
+  margin: 0 auto 1rem;  /* Centraliza horizontalmente */
   background: var(--cinza-claro);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  position: relative;    /* Para posicionar a img e i */
+}
+
+.qrcode-placeholder img,
+.qrcode-placeholder i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* Centraliza perfeitamente */
+  width: 90%;       /* 90% do placeholder para margem interna */
+  height: 90%;
+  object-fit: contain;
 }
 
 .qrcode-placeholder i {
@@ -272,10 +288,30 @@
   color: var(--cinza-medio);
 }
 
-.emec-qrcode p {
-  font-size: 0.9rem;
-  color: var(--cinza-medio);
-  margin: 0;
+/* Responsividade */
+@media (max-width: 768px) {
+  .qrcode-placeholder {
+    max-width: 250px;  /* Menor em tablets */
+    padding-bottom: 100%;  /* Mantém quadrado */
+  }
+  
+  .qrcode-placeholder img,
+  .qrcode-placeholder i {
+    width: 85%;  /* Um pouco menor */
+    height: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .qrcode-placeholder {
+    max-width: 200px;  /* Ainda menor em mobile */
+  }
+  
+  .qrcode-placeholder img,
+  .qrcode-placeholder i {
+    width: 80%;
+    height: 80%;
+  }
 }
 
 /* Responsividade */

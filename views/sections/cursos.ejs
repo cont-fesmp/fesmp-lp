@@ -5,70 +5,71 @@
     <p>Especializações reconhecidas pelo MEC com excelência acadêmica</p>
   </div>
   
-  <div class="row">
-    <% cursos.forEach(curso => { %>
-    <div class="col col-12 col-md-4 col-lg-4">
-      <div class="curso-card <%= curso.destaque ? 'destaque' : '' %>">
-        <% if (curso.destaque) { %>
-        <div class="curso-badge">
-          <i class="fas fa-star"></i>
-          Destaque
-        </div>
-        <% } %>
-        
-        <div class="curso-image">
-          <img src="<%= curso.imagem %>" 
-               alt="<%= curso.nome %>"
-               onerror="this.src='/images/cursos/default.jpg'">
-          <div class="curso-overlay">
-            <span class="curso-modalidade">
-              <i class="fas fa-map-marker-alt"></i>
-              <%= curso.modalidade %>
-            </span>
+  <!-- Container do Carrossel Swiper -->
+  <div class="swiper-container cursos-carousel">
+    <div class="swiper-wrapper">
+      <% cursos.forEach(curso => { %>
+      <div class="swiper-slide">
+        <div class="curso-card <%= curso.destaque ? 'destaque' : '' %>">
+          <% if (curso.destaque) { %>
+          <div class="curso-badge">
+            <i class="fas fa-star"></i>
+            Destaque
           </div>
-        </div>
-        
-        <div class="curso-body">
-          <h3 class="curso-title"><%= curso.nome %></h3>
-          <p class="curso-description"><%= curso.descricao %></p>
+          <% } %>
           
-          <div class="curso-info">
-            <div class="curso-info-item">
-              <i class="fas fa-clock"></i>
-              <span><%= curso.duracao %></span>
-            </div>
-            <div class="curso-info-item">
-              <i class="fas fa-book"></i>
-              <span><%= curso.cargaHoraria %></span>
+          <div class="curso-image">
+            <img src="<%= curso.imagem %>" 
+                 alt="<%= curso.nome %>"
+                 onerror="this.src='/images/cursos/default.jpg'">
+            <div class="curso-overlay">
+              <span class="curso-modalidade">
+                <i class="fas fa-map-marker-alt"></i>
+                <%= curso.modalidade %>
+              </span>
             </div>
           </div>
           
-          <div class="curso-footer">
-            <a href="#contato" class="btn btn-primary btn-block">
-              <i class="fas fa-graduation-cap"></i>
-              Saiba Mais
-            </a>
+          <div class="curso-body">
+            <h3 class="curso-title"><%= curso.nome %></h3>
+            <p class="curso-description"><%= curso.descricao %></p>
+            
+            <div class="curso-info">
+              <div class="curso-info-item">
+                <i class="fas fa-clock"></i>
+                <span><%= curso.duracao %></span>
+              </div>
+              <div class="curso-info-item">
+                <i class="fas fa-book"></i>
+                <span><%= curso.cargaHoraria %></span>
+              </div>
+            </div>
+            
+            <div class="curso-footer">
+              <a href="#contato" class="btn btn-primary btn-block">
+                <i class="fas fa-graduation-cap"></i>
+                Saiba Mais
+              </a>
+            </div>
           </div>
         </div>
       </div>
+      <% }); %>
     </div>
-    <% }); %>
   </div>
   
-  <div class="cursos-cta">
+  <!-- Restante do código (CTA) permanece igual -->
+    <div class="cursos-cta">
     <div class="cursos-cta-content">
-      <div class="cursos-cta-text">
-        <h3>Não encontrou o curso ideal?</h3>
-        <p>Entre em contato conosco e saiba mais sobre outras especializações disponíveis</p>
-      </div>
-      <div class="cursos-cta-action">
-        <a href="#contato" class="btn btn-secondary btn-lg">
-          <i class="fas fa-envelope"></i>
-          Fale Conosco
-        </a>
-      </div>
+    <div class="cursos-cta-text">
+    <h3>Não encontrou o curso ideal?</h3>
+    <p>Entre em contato conosco e saiba mais sobre outras especializações disponíveis</p>
     </div>
-  </div>
+    <div class="cursos-cta-action">
+    <a href="#contato" class="btn btn-secondary btn-lg">
+    <i class="fas fa-envelope"></i>Fale Conosco</a>
+    </div>
+    </div>
 </div>
 
 <style>
@@ -240,6 +241,32 @@
   transform: translateY(-2px);
 }
 
+/* Estilos para o Carrossel Swiper */
+.swiper-container {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  height: auto;  /* Permite altura variável dos cards */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--vermelho-principal);  /* Cor das setas */
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--vermelho-principal);  /* Cor da paginação ativa */
+}
+
+/* Responsividade extra */
+@media (max-width: 768px) {
+  .swiper-container {
+    padding: 10px 0;
+  }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .curso-card {
@@ -272,5 +299,43 @@
   .cursos-cta-action .btn {
     width: 100%;
   }
+/* === AJUSTES PARA O CARROSSEL === */
+.cursos-carousel .swiper-slide {
+  display: flex;
+  justify-content: center;  /* Centraliza o card no slide */
+}
+
+.curso-card {
+  max-width: 360px;  /* Limita a largura máxima como no Bootstrap (aprox. 400px) */
+  width: 100%;       /* Permite que o card ocupe o espaço disponível até o max-width */
+  margin: 0 auto;    /* Centraliza horizontalmente */
+  /* Mantenha o resto do seu CSS original para .curso-card */
+}
+
+/* Responsividade: Ajuste para telas menores */
+@media (max-width: 768px) {
+  .curso-card {
+    max-width: 100%;  /* Em mobile, ocupa toda a largura disponível */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .curso-card {
+    max-width: 250px;  /* Em telas médias, um pouco menor para caber melhor */
+  }
+}
+/* === CONTAINER DO CARROSSEL === */
+.cursos-carousel {
+  max-width: 1200px;  /* Limita à largura máxima da página (igual ao .container Bootstrap) */
+  margin: 0 auto;     /* Centraliza o carrossel horizontalmente */
+  overflow: hidden;   /* Corta qualquer excesso horizontal (cards "sumissem" nas bordas) */
+  position: relative; /* Mantém setas e paginação posicionadas */
+}
+
+/* Garante que o .container envolvente não interfira */
+.container .cursos-carousel {
+  width: 100%;  /* Ocupa 100% do .container, mas respeita o max-width acima */
+}
+
 }
 </style>
