@@ -1,6 +1,6 @@
 [
   {
-    "id": 5,
+    "id": 1,
     "nome": "Direito Penal e Direito Processual Penal",
     "descricao": "Especialização completa em Direito Penal com enfoque prático e teórico avançado.",
     "duracao": "12 meses",
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "nome": "Direito da Insolvência Empresarial",
-    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "descricao": "Formação completa em Direito da Insolvência Empresarial para quem quer se posicionar nas áreas mais estratégicas do mercado jurídico.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
     "modalidade": "Presencial",
@@ -20,9 +20,19 @@
     "destaque": true
   },
   {
-    "id": 1,
+    "id": 3,
+    "nome": "Licenciamento Ambiental",
+    "descricao": "Especialização em Licenciamento Ambiental com foco prático na Nova Lei Geral (Lei nº 15.190/2025) e na atuação estratégica em todas as etapas do licenciamento.",
+    "duracao": "12 meses",
+    "cargaHoraria": "360 horas",
+    "modalidade": "Presencial",
+    "imagem": "/images/cursos/licenciamento.jpg",
+    "destaque": true
+  },
+  {
+    "id": 4,
     "nome": "Direito Ambiental e Urbanístico",
-    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "descricao": "Formação especializada em Direito Ambiental e Urbanístico para quem quer atuar na linha de frente da sustentabilidade e da gestão urbana.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
     "modalidade": "Presencial",
@@ -30,9 +40,9 @@
     "destaque": false
   },
   {
-    "id": 3,
+    "id": 5,
     "nome": "Direito Processual Civil",
-    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "descricao": "Pós-graduação em Direito Processual Civil voltada à prática forense, à celeridade processual e à efetividade das decisões judiciais.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
     "modalidade": "Presencial",
@@ -40,9 +50,9 @@
     "destaque": false
   },
   {
-    "id": 4,
+    "id": 6,
     "nome": "Direito Constitucional e Administrativo",
-    "descricao": "Curso voltado para a proteção do meio ambiente e desenvolvimento sustentável.",
+    "descricao": "",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
     "modalidade": "Presencial",
