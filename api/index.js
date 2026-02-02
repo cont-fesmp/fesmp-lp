@@ -112,7 +112,7 @@ app.get('/portal-aluno', (req, res) => {
 
 // Rota para download do PDF
 app.get('/download/pdf', (req, res) => {
-    const filePath = path.join(__dirname, '/donwload/CARTILHA FUND PRIV.pdf'); // Caminho do PDF no servidor
+    const filePath = path.join(rootDir, 'public', 'download', 'CARTILHA FUND PRIV.pdf');  
     res.download(filePath, 'CARTILHA FUND PRIV.pdf', (err) => {
         if (err) {
             console.error('Erro no download:', err);
