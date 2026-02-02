@@ -1,0 +1,204 @@
+<section id="matricula" class="section">
+  <div class="nova-container animate-on-scroll">  <!-- Adicionei 'animate-on-scroll' para o observer detectar -->
+    <!-- Imagem alinhada ao topo-esquerdo (removi 'slide-in-left') -->
+    <img src="/images/matricula.png" alt="FESMP/MT" class="nova-imagem">
+    
+    <!-- Div sobreposta alinhada ao fundo-direito, com texto e botão (removi 'slide-in-right') -->
+    <div class="nova-overlay">
+      <div class="nova-conteudo">
+        <h2>Matrícula Digital</h2>
+        <p>Com a matrícula online, você faz todo o processo de forma rápida, segura e sem sair de casa.</p>
+         
+        <div class="hero-actions">
+          <a
+            href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home"
+            class="btn btn-primary btn-lg"
+            target="_blank"
+          >
+            <i class="fas fa-graduation-cap"></i> Faça sua Matrícula
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== BOTÃO DE MATRÍCULA SOBREPOSTO ===== */
+.hero-actions {
+  /* Removido: position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%); */
+  /* Agora segue o fluxo normal, alinhado à esquerda com o texto */
+  text-align: left;  /* Alinha o botão à esquerda */
+  margin-top: 20px;  /* Espaço acima do botão para separá-lo do parágrafo */
+  /* Removido: z-index: 10; (não precisa mais, pois não é absoluto) */
+}
+
+/* Ajuste adicional para o botão dentro de .hero-actions */
+.hero-actions .btn {
+  font-size: 1rem;  /* Reduz tamanho da fonte (padrão era maior com btn-lg) */
+  padding: 10px 20px;  /* Reduz padding para botão menor */
+  /* Se quiser ainda menor, ajuste para padding: 8px 16px; */
+}
+
+/* Para garantir que o botão não herde centralização de outros lugares */
+.hero-actions .btn-lg {
+  font-size: 1rem !important;  /* Força redução se btn-lg estiver ativo */
+  padding: 10px 20px !important;
+}
+
+/* Container principal */
+.nova-container {
+  max-width: 1200px;  /* Limita largura máxima do site para evitar overflow */
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; 
+  overflow: hidden; 
+  width: 100%;  
+  margin: 0 auto;  
+}
+
+/* Imagem: Proporção 16/9, altura máx 480px, alinhada topo-esquerdo */
+.nova-imagem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(420px * (16 / 9)); /* ≈ 853.33px */
+  height: 420px;
+  max-height: 420px;
+  object-fit: cover; /* Mantém proporção sem distorcer */
+  z-index: 1; /* Abaixo da overlay */
+  border-radius: 50px;  
+}
+
+/* Div sobreposta: Mesmo tamanho da imagem, alinhada fundo-direito */
+.nova-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(380px * (16 / 9)); /* Mesmo tamanho da imagem */
+  height: 380px;
+  background: linear-gradient(135deg, #2D7A3E 0%, #1F5A2C 100%); 
+  display: flex;
+  align-items: center;  /* Mantém centralizado verticalmente */
+  justify-content: flex-start;  /* Alinha horizontalmente à esquerda */
+  z-index: 2; /* Acima da imagem */
+  color: #E3EFE6;
+  /* Removido: text-align: center; (não precisa mais, pois o flex controla) */
+  padding: 20px;  /* Mantém padding geral */
+  box-sizing: border-box;
+  border-radius: 50px;  
+}
+
+/* Conteúdo dentro da overlay */
+.nova-conteudo {
+  text-align: left;  /* Alinha o texto à esquerda */
+  margin-left: 40px;  /* Margem mínima de 40px da borda esquerda da overlay */
+  /* Outros estilos permanecem iguais */
+}
+
+.nova-conteudo h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.nova-conteudo p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Keyframes para slide-in da esquerda (para a imagem) */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Termina na posição original */
+    opacity: 1;
+  }
+}
+
+/* Keyframes para slide-in da direita (para a overlay) */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%); /* Começa fora da tela à direita */
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0); /* Termina na posição original */
+    opacity: 1;
+  }
+}
+
+/* Agora, animações só ativam com a classe 'animate' (adicionada pelo JS on scroll) */
+.nova-imagem.animate {
+  animation: slideInLeft 1.0s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0; /* Inicialmente invisível */
+}
+
+.nova-overlay.animate {
+  animation: slideInRight 1.0s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0; /* Inicialmente invisível */
+}
+
+/* Responsividade: Ajuste timings em telas menores para animações mais rápidas */
+@media (max-width: 768px) {
+  .nova-imagem.animate,
+  .nova-overlay.animate {
+    animation-duration: 0.8s;
+  }
+  
+  .nova-imagem.animate {
+    animation-delay: 0.1s;
+  }
+  
+  .nova-overlay.animate {
+    animation-delay: 0.3s;
+  }
+}
+
+/* Responsividade: Em telas menores (ex.: tablets/mobiles), ajuste tamanho */
+@media (max-width: 1024px) {
+  .nova-container {
+    height: 400px;
+  }
+  
+  .nova-imagem,
+  .nova-overlay {
+    width: calc(350px * (16 / 9));
+    height: 350px;
+  }
+  
+  .nova-conteudo h2 {
+    font-size: 1.5rem;
+  }
+  
+  .nova-conteudo p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nova-container {
+    height: 300px;
+  }
+  
+  .nova-imagem,
+  .nova-overlay {
+    width: calc(250px * (16 / 9));
+    height: 250px;
+  }
+  
+  .nova-conteudo h2 {
+    font-size: 1.2rem;
+  }
+  
+  .nova-conteudo p {
+    font-size: 0.9rem;
+  }
+}
+</style>

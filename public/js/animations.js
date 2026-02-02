@@ -262,3 +262,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   console.log('✅ Sistema de animações ativo!');
   console.log('📌 Faça scroll para ver as animações acontecerem');
 });
+
+// Intersection Observer para trigger on scroll na seção matricula
+document.addEventListener('DOMContentLoaded', function() {
+  const observerOptions = {
+    threshold: 0.2,  // Ativa quando 20% da seção estiver visível
+    rootMargin: '0px 0px -50px 0px'  // Ativa um pouco antes
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Adiciona 'animate' aos filhos quando a seção entra na viewport
+        const imagem = entry.target.querySelector('.nova-imagem');
+        const overlay = entry.target.querySelector('.nova-overlay');
+        if (imagem) imagem.classList.add('animate');
+        if (overlay) overlay.classList.add('animate');
+        
+        // Pare de observar após a primeira ativação
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe o container da seção matricula
+  const matriculaContainer = document.querySelector('.nova-container');
+  if (matriculaContainer) {
+    observer.observe(matriculaContainer);
+  }
+});

@@ -6,17 +6,6 @@
     <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>
   </div>
 
-  <!-- BOTÃO DE MATRÍCULA SOBREPOSTO NO CENTRO INFERIOR -->
-  <div class="hero-actions">
-    <a
-      href="https://fundacaoescola.escolaweb.com.br/matriculaonline/#/home"
-      class="btn btn-primary btn-lg"
-      target="_blank"
-    >
-      <i class="fas fa-graduation-cap"></i> Faça sua Matrícula
-    </a>
-  </div>
-
   <!-- BULLETS DE CONTROLE ABAIXO DO BOTÃO -->
   <div class="carousel-bullets">
     <span class="bullet active" data-slide="0"></span>
@@ -64,19 +53,11 @@
   transform: scale(1);
 }
 
-/* ===== BOTÃO DE MATRÍCULA SOBREPOSTO ===== */
-.hero-actions {
-  position: absolute;
-  bottom: 6rem;  /* Levantado um pouco para dar espaço aos bullets abaixo */
-  left: 50%;
-  transform: translateX(-50%);  /* Centraliza horizontalmente */
-  z-index: 10;  /* Fica acima do carrossel */
-}
 
 /* ===== BULLETS DE CONTROLE ===== */
 .carousel-bullets {
   position: absolute;
-  bottom: 2rem; 
+  bottom: 1.5rem; 
   left: 50%;
   transform: translateX(-50%);  
   display: flex;
