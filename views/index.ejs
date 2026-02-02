@@ -122,26 +122,20 @@
   });
 </script>
 <script>
-document.getElementById('popup-image').addEventListener('click', function() {
-    const link = document.createElement('a');
-    link.href = '/download/pdf'; // Rota do Express para o PDF
-    link.download = 'CARTILHA FUND PRIV.pdf'; // Nome do arquivo no download
-    link.click();
-});
-
 // Evento para fechar o pop-up
 document.getElementById('close-popup').addEventListener('click', function() {
     document.getElementById('popup').style.display = 'none';
 });
 
-// Evento para download (mantido do anterior)
+// Evento para download ao clicar na imagem
 document.getElementById('popup-image').addEventListener('click', function() {
+    // Cria um link temporário para o download
     const link = document.createElement('a');
-    link.href = '/download/CARTILHA FUND PRIV.pdf';
-    link.download = 'CARTILHA FUND PRIV.pdf';
+    link.href = '/download/pdf';  // Rota do servidor (veja abaixo como criar)
+    link.download = 'CARTILHA FUND PRIV.pdf';  // Nome do arquivo no download
+    link.target = '_blank';  // Abre em nova aba se necessário (opcional)
     link.click();
 });
-
 </script>
   </body>
 </html>
