@@ -1,38 +1,20 @@
 [
   {
-    "id": 1,
-    "titulo": "Curso de Atualização em Direito Penal",
-    "resumo": "Uma visão atualizada, sistematizada e crítica das principais alterações legislativas e orientações jurisprudenciais.",
-    "imagem": "/images/noticias/att-penal.jpg",
-    "data": "2025-01-19",
-    "categoria": "Cursos",
-    "destaque": true
+    "link": "https://www.instagram.com/p/DUJvh2ej6RL/"
   },
   {
-    "id": 2,
-    "titulo": "Abertura de matrículas para pós-graduação em Direito Penal",
-    "resumo": "Inscrições abertas para o curso de especialização com corpo docente altamente qualificado.",
-    "imagem": "/images/noticias/pos-direito-penal.jpg",
-    "data": "2025-01-15",
-    "categoria": "Cursos",
-    "destaque": false
+    "link": "https://www.instagram.com/p/DUGeG3xEqzV/"
   },
   {
-    "id": 3,
-    "titulo": "Professores da FESMP participam de congresso internacional",
-    "resumo": "Docentes representam a instituição em evento sobre Direito Ambiental em Portugal.",
-    "imagem": "/images/noticias/congresso-internacional.jpg",
-    "data": "2025-01-10",
-    "categoria": "Eventos",
-    "destaque": false
+    "link": "https://www.instagram.com/p/DT-tU9mEoaq/"
   },
   {
-    "id": 4,
-    "titulo": "Professores da FESMP participam de congresso internacional",
-    "resumo": "Docentes representam a instituição em evento sobre Direito Ambiental em Portugal.",
-    "imagem": "/images/noticias/congresso-internacional.jpg",
-    "data": "2025-01-10",
-    "categoria": "Eventos",
-    "destaque": false
+    "link": "https://www.instagram.com/p/DTvhH7Uj_MJ/"
+  },
+  {
+    "link": "https://www.instagram.com/p/DTTBK5fDUK3/"
+  },
+  {
+    "link": "https://www.instagram.com/p/DTQPWGwjb0G/"
   }
 ]

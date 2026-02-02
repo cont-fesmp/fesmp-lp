@@ -110,6 +110,18 @@ app.get('/portal-aluno', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/login.html#!/');
 });
 
+// Rota para download do PDF
+app.get('/download/pdf', (req, res) => {
+    const filePath = path.join(__dirname, '/donwload/CARTILHA FUND PRIV.pdf'); // Caminho do PDF no servidor
+    res.download(filePath, 'CARTILHA FUND PRIV.pdf', (err) => {
+        if (err) {
+            console.error('Erro no download:', err);
+            res.status(500).send('Erro ao baixar o arquivo.');
+        }
+    });
+});
+
+
 app.post('/api/contato', (req, res) => {
   console.log('Formulário recebido:', req.body);
 

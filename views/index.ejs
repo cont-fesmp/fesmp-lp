@@ -63,6 +63,11 @@
   
   <%- include('partials/footer') %>
 
+    <div id="popup">
+        <button id="close-popup"><i class="fas fa-times"></i></button>
+        <img id="popup-image" src="/images/cartilha.png" alt="Cartilha">
+    </div>
+
     <div id="whatsapp-button">
       <a href="https://wa.me/556596581800?text=Acessei%20o%20site%20https://www.fundcacaoescola.org.br%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es!" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="70" height="70">
@@ -116,6 +121,27 @@
     });
   });
 </script>
+<script>
+document.getElementById('popup-image').addEventListener('click', function() {
+    const link = document.createElement('a');
+    link.href = '/download/pdf'; // Rota do Express para o PDF
+    link.download = 'CARTILHA FUND PRIV.pdf'; // Nome do arquivo no download
+    link.click();
+});
 
+// Evento para fechar o pop-up
+document.getElementById('close-popup').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+});
+
+// Evento para download (mantido do anterior)
+document.getElementById('popup-image').addEventListener('click', function() {
+    const link = document.createElement('a');
+    link.href = '/download/pdf';
+    link.download = 'nome-do-arquivo.pdf';
+    link.click();
+});
+
+</script>
   </body>
 </html>

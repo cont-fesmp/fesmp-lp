@@ -6,38 +6,42 @@
       <p>Fique por dentro das novidades da FESMP</p>
     </div>
     
-    <% 
-      // Array de embeds (use backticks para template literals)
-      const instagramEmbeds = [
-      ];
-    %>
-    
-    <% if (instagramEmbeds && instagramEmbeds.length > 0) { %>
+    <% if (noticias && noticias.length > 0) { %>
       <!-- Slider Swiper para Embeds do Instagram -->
       <div class="swiper-container noticias-swiper">
         <div class="swiper-wrapper">
           <% 
-            // Agrupa 2 embeds por slide
-            for (let i = 0; i < instagramEmbeds.length; i += 2) { 
+            // Agrupa 2 posts por slide
+            for (let i = 0; i < noticias.length; i += 2) { 
           %>
             <div class="swiper-slide">
               <div class="noticia-slide-group">
                 <div class="noticia-slide-embed">
-                  <%= instagramEmbeds[i] %>
+                  <!-- Primeiro embed do grupo -->
+                  <blockquote class="instagram-media" data-instgrm-permalink="<%= noticias[i].link %>" data-instgrm-version="14">
+                    <div style="padding:16px;">
+                      <a href="<%= noticias[i].link %>" style="color:#000; font-family:Arial,sans-serif; font-size:12px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Ver post no Instagram</a>
+                    </div>
+                  </blockquote>
                 </div>
-                <% if (instagramEmbeds[i + 1]) { %>
+                <% if (noticias[i + 1]) { %>
                   <div class="noticia-slide-embed">
-                    <%= instagramEmbeds[i + 1] %>
+                    <!-- Segundo embed do grupo -->
+                    <blockquote class="instagram-media" data-instgrm-permalink="<%= noticias[i + 1].link %>" data-instgrm-version="14">
+                      <div style="padding:16px;">
+                        <a href="<%= noticias[i + 1].link %>" style="color:#000; font-family:Arial,sans-serif; font-size:12px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Ver post no Instagram</a>
+                      </div>
+                    </blockquote>
                   </div>
                 <% } %>
               </div>
             </div>
           <% } %>
         </div>
-        <!-- Navegação Swiper -->
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <!-- Container para Navegação Swiper -->
+        <div class="noticias-navigation">
+          <div class="swiper-pagination noticias-pagination"></div>
+        </div>
       </div>
     <% } else { %>
       <div class="noticias-empty">
@@ -67,26 +71,25 @@
 
     // Inicializa o Swiper
     const swiper = new Swiper('.noticias-swiper', {
-      slidesPerView: 1,
+      slidesPerView: 1,  // Mostra 1 grupo (2 posts) por vez
       spaceBetween: 20,
       loop: true,
-      autoHeight: true,
+      autoHeight: false,
       observer: true,
       observeParents: true,
       pagination: {
-        el: '.swiper-pagination',
+        el: '.noticias-pagination',
         clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
       },
       on: {
         init: function () {
-          setTimeout(processEmbeds, 1000);  // Processa no inicial
+          setTimeout(() => {
+            processEmbeds();
+            setTimeout(processEmbeds, 1500);
+          }, 500);
         },
         slideChange: function () {
-          setTimeout(processEmbeds, 500);  // Processa na mudança
+          setTimeout(processEmbeds, 500);
         },
       },
       autoplay: {
@@ -95,27 +98,17 @@
       },
     });
 
-    // MutationObserver para detectar slides visíveis
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
-          const target = mutation.target;
-          if (target.classList.contains('swiper-slide-active') || target.style.display !== 'none') {
-            setTimeout(processEmbeds, 200);  // Processa quando visível
-          }
-        }
-      });
+    // MutationObserver para slides ativos
+    const observer = new MutationObserver(() => {
+      setTimeout(processEmbeds, 300);
     });
-
-    // Observa todos os slides
     document.querySelectorAll('.swiper-slide').forEach(slide => {
-      observer.observe(slide, { attributes: true, attributeFilter: ['style', 'class'] });
+      observer.observe(slide, { attributes: true, attributeFilter: ['class'] });
     });
 
-    // Processamento inicial e loop de backup
-    setTimeout(processEmbeds, 1500);
-    let processInterval = setInterval(processEmbeds, 3000);  // A cada 3s
-    setTimeout(() => clearInterval(processInterval), 15000);  // Para após 15s
+    // Backup: Processa periodicamente
+    let processInterval = setInterval(processEmbeds, 3000);
+    setTimeout(() => clearInterval(processInterval), 20000);
   });
 </script>
 
@@ -133,9 +126,11 @@
 /* Grupo de 2 embeds por slide */
 .noticia-slide-group {
   display: flex;
-  gap: 1rem;
+  gap: 1rem;  /* Espaço entre os 2 embeds */
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;  /* Altura igual */
+  width: 100%;
+  height: 720px;  /* Altura fixa do grupo */
 }
 
 .noticia-slide-embed {
@@ -144,8 +139,11 @@
   padding: 1rem;
   box-shadow: var(--sombra-media);
   transition: all var(--transicao-media);
-  flex: 1;
-  min-height: 400px;  /* Altura mínima para consistência */
+  /* Largura 50% para 2 lado a lado, altura fixa */
+  flex: 1;  /* Ocupa espaço igual */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .noticia-slide-embed:hover {
@@ -157,19 +155,38 @@
 .noticia-slide-embed blockquote {
   margin: 0;
   width: 100% !important;
+  height: 100% !important;
   max-width: none !important;
   border: none !important;
   box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.8);
+  transform-origin: center;
+}
+
+/* Para o iframe interno do Instagram */
+.noticia-slide-embed blockquote iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+}
+
+/* Container da Navegação Swiper */
+.noticias-navigation {
+  position: relative;
+  margin-top: 1rem;  /* Espaço logo abaixo dos slides */
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;  /* Alinha verticalmente */
+  gap: 1rem;  /* Espaço entre pagination e buttons */
 }
 
 /* Swiper Navegação */
-.swiper-pagination {
-  bottom: 10px !important;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: var(--vermelho-principal) !important;
+.noticias-pagination {
+  position: static !important;  /* Remove posicionamento absoluto para usar no flex */
+  margin: 0 !important;
 }
 
 /* Empty State */
@@ -193,13 +210,20 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .noticia-slide-group {
-    flex-direction: column;  /* 1 coluna em mobile */
+    flex-direction: column;  /* Um embaixo do outro em mobile */
     gap: 0.5rem;
+    height: auto;  /* Altura automática para 2 stacked */
   }
   
   .noticia-slide-embed {
-    min-height: 300px;
+    flex: none;  /* Remove flex para altura individual */
+    width: 100%;  /* Largura total */
+    height: 480px;  /* Altura fixa por embed */
     padding: 0.5rem;
+  }
+  
+  .noticia-slide-embed blockquote {
+    transform: scale(0.5);  /* Reduz mais para caber */
   }
   
   .noticias-footer .btn {

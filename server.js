@@ -126,6 +126,17 @@ app.get('/certificado', (req, res) => {
   });
 });
 
+// Rota para download do PDF
+app.get('/download/pdf', (req, res) => {
+    const filePath = path.join(__dirname, '/donwload/CARTILHA FUND PRIV.pdf'); // Caminho do PDF no servidor
+    res.download(filePath, 'CARTILHA FUND PRIV.pdf', (err) => {
+        if (err) {
+            console.error('Erro no download:', err);
+            res.status(500).send('Erro ao baixar o arquivo.');
+        }
+    });
+});
+
 // API endpoint para envio de formulário de contato
 app.post('/api/contato', (req, res) => {
   // Aqui você pode implementar o envio de email ou salvar no banco de dados

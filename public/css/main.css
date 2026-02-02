@@ -244,3 +244,54 @@ a {
 #whatsapp-button img:hover {
   transform: scale(1.2); 
 }
+
+#popup {
+    position: fixed;
+    bottom: 20px; /* Canto inferior */
+    left: 0; /* Canto esquerdo */
+    right: 0; /* Borda direita encosta na janela */
+    width: 200px; /* Largura do pop-up */
+    height: auto; /* Altura automática baseada no conteúdo */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 0 25px 25px 0; /* Apenas cantos direitos arredondados */
+    display: block;
+}
+
+#close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 50%; /* Circular */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s; /* Animação */
+}
+#close-popup:hover {
+    background-color: #ddd;
+    transform: rotate(90deg); /* Rotação no hover */
+}
+
+#popup-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    margin-top: 40px; /* Espaço para o botão X */
+}
+
+#popup-caption {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
