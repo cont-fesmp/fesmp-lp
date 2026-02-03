@@ -4,6 +4,7 @@
     <div class="slide active" style="background-image:url('/images/hero/hero1.png')"></div>
     <div class="slide" style="background-image:url('/images/hero/hero2.png')"></div>
     <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>
+    <div class="slide" style="background-image:url('/images/hero/hero4.png')"></div>
   </div>
 
   <!-- BULLETS DE CONTROLE ABAIXO DO BOTÃO -->
@@ -11,14 +12,15 @@
     <span class="bullet active" data-slide="0"></span>
     <span class="bullet" data-slide="1"></span>
     <span class="bullet" data-slide="2"></span>
+    <span class="bullet" data-slide="3"></span>
   </div>
 </section>
 
 <style>
 /* ===== HERO BASE ===== */
 .hero {
-  max-width: 1200px;  /* Limita largura máxima do site para evitar overflow */
-  aspect-ratio: 12/4;
+  max-width: 1000px;  /* Limita largura máxima do site para evitar overflow */
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +46,7 @@
   background-repeat: no-repeat;  /* Evita repetição da imagem */
   opacity: 0;
   transition: opacity 1s ease-in-out, transform 6s ease;
-  border-radius: 50px;  /* Bordas arredondadas nas imagens */
+  border-radius: 40px;  /* Bordas arredondadas nas imagens */
   overflow: hidden;  /* Garante que as bordas arredondadas sejam aplicadas */
 }
 
@@ -70,8 +72,8 @@
 }
 
 .bullet {
-  width: 20px;  /* Mantido seu ajuste: maior em desktop */
-  height: 20px;
+  width: 16px;  /* Mantido seu ajuste: maior em desktop */
+  height: 16px;
   background-color: #ffffff;  /* Fundo branco */
   border: 2px solid #ff0000;  /* Borda vermelha */
   border-radius: 50%;  /* Arredondado */
@@ -97,26 +99,26 @@
   }
 
   .hero-actions {
-    bottom: 0.5rem;  /* AJUSTADO: Move para logo abaixo do carrossel (final inferior) em mobile */
+    bottom: 0.5rem;  
   }
 
   .hero-actions .btn {
-    font-size: 0.6rem;  /* REFORÇADO: Fonte ainda menor para botão compacto */
-    padding: 0.4rem 0.8rem;  /* REFORÇADO: Padding reduzido para tamanho menor */
+    font-size: 0.6rem;  
+    padding: 0.4rem 0.8rem; 
   }
 
   .carousel-bullets {
-    bottom: 3rem;  /* AJUSTADO: Move para cima para dar espaço ao botão abaixo */
-    padding: 0.4rem 0.8rem;  /* Padding menor em mobile */
+    bottom: 3rem; 
+    padding: 0.4rem 0.8rem;  
   }
 
   .bullet {
-    width: 12px;  /* Mantido seu ajuste: menor em mobile */
+    width: 12px;  
     height: 12px;
   }
 
   .slide {
-    border-radius: 10px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
+    border-radius: 20px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
     background-size: contain;  /* Muda para contain em mobile para evitar cortes (manterá proporção, pode deixar espaços) */
   }
 }
@@ -124,7 +126,7 @@
 /* Media query para tablets (opcional, mas ajuda na transição) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero {
-    max-width: 1200px;  /* Mantém limite em tablets */
+    max-width: 1000px;  /* Mantém limite em tablets */
     aspect-ratio: 3/1;
   }
 }
