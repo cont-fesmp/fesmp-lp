@@ -26,76 +26,72 @@
 <style>
 /* ===== BOTÃO DE MATRÍCULA SOBREPOSTO ===== */
 .hero-actions {
-  /* Removido: position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%); */
-  /* Agora segue o fluxo normal, alinhado à esquerda com o texto */
-  text-align: left;  /* Alinha o botão à esquerda */
-  margin-top: 20px;  /* Espaço acima do botão para separá-lo do parágrafo */
-  /* Removido: z-index: 10; (não precisa mais, pois não é absoluto) */
+  text-align: left;
+  margin-top: 20px;
 }
 
-/* Ajuste adicional para o botão dentro de .hero-actions */
 .hero-actions .btn {
-  font-size: 1rem;  /* Reduz tamanho da fonte (padrão era maior com btn-lg) */
-  padding: 10px 20px;  /* Reduz padding para botão menor */
-  /* Se quiser ainda menor, ajuste para padding: 8px 16px; */
+  font-size: 1rem;
+  padding: 10px 20px;
 }
 
-/* Para garantir que o botão não herde centralização de outros lugares */
 .hero-actions .btn-lg {
-  font-size: 1rem !important;  /* Força redução se btn-lg estiver ativo */
+  font-size: 1rem !important;
   padding: 10px 20px !important;
 }
 
 /* Container principal */
 .nova-container {
-  max-width: 1200px;  /* Limita largura máxima do site para evitar overflow */
-  height: 520px;
+  max-width: 1200px;
+  min-height: 520px; /* Mudança: min-height ao invés de height fixa para flexibilidade */
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; 
-  overflow: hidden; 
-  width: 100%;  
-  margin: 0 auto;  
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box; /* Adicionado para consistência */
 }
 
-/* Imagem: Proporção 16/9, altura máx 480px, alinhada topo-esquerdo */
+/* Imagem: Agora usa unidades relativas para responsividade */
 .nova-imagem {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(420px * (16 / 9)); /* ≈ 853.33px */
-  height: 420px;
+  width: 70vw; /* Mudança: ~70% da largura da viewport para adaptação */
+  max-width: 853px; /* Limite máximo para telas grandes */
+  height: 40vh; /* Mudança: ~40% da altura da viewport */
   max-height: 420px;
-  object-fit: cover; /* Mantém proporção sem distorcer */
-  z-index: 1; /* Abaixo da overlay */
-  border-radius: 50px;  
+  object-fit: cover;
+  z-index: 1;
+  border-radius: 50px;
 }
 
-/* Div sobreposta: Mesmo tamanho da imagem, alinhada fundo-direito */
+/* Div sobreposta: Mesmo tamanho relativo da imagem */
 .nova-overlay {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: calc(380px * (16 / 9)); /* Mesmo tamanho da imagem */
-  height: 380px;
-  background: linear-gradient(135deg, #2D7A3E 0%, #1F5A2C 100%); 
+  width: 55vw; /* Mudança: ~65% da largura da viewport */
+  max-width: 800px; /* Limite máximo */
+  height: 45vh; /* Mudança: ~35% da altura da viewport */
+  max-height: 420px;
+  background: linear-gradient(135deg, #2D7A3E 0%, #1F5A2C 100%);
   display: flex;
-  align-items: center;  /* Mantém centralizado verticalmente */
-  justify-content: flex-start;  /* Alinha horizontalmente à esquerda */
-  z-index: 2; /* Acima da imagem */
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
   color: #E3EFE6;
-  /* Removido: text-align: center; (não precisa mais, pois o flex controla) */
-  padding: 20px;  /* Mantém padding geral */
+  padding: 20px;
   box-sizing: border-box;
-  border-radius: 50px;  
+  border-radius: 50px;
 }
 
 /* Conteúdo dentro da overlay */
 .nova-conteudo {
-  text-align: left;  /* Alinha o texto à esquerda */
-  margin-left: 40px;  /* Margem mínima de 40px da borda esquerda da overlay */
-  /* Outros estilos permanecem iguais */
+  text-align: left;
+  margin-left: 40px;
 }
 
 .nova-conteudo h2 {
@@ -108,45 +104,66 @@
   margin-bottom: 20px;
 }
 
-/* Keyframes para slide-in da esquerda (para a imagem) */
+/* Keyframes para animações (mantidos iguais) */
 @keyframes slideInLeft {
   0% {
-    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    transform: translateX(-100%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0); /* Termina na posição original */
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
-/* Keyframes para slide-in da direita (para a overlay) */
 @keyframes slideInRight {
   0% {
-    transform: translateX(100%); /* Começa fora da tela à direita */
+    transform: translateX(100%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0); /* Termina na posição original */
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
-/* Agora, animações só ativam com a classe 'animate' (adicionada pelo JS on scroll) */
+/* Animações só ativam com 'animate' (adicionada pelo JS) */
 .nova-imagem.animate {
-  animation: slideInLeft 1.0s ease-out forwards;
+  animation: slideInLeft 1.4s ease-out forwards;
   animation-delay: 0.4s;
-  opacity: 0; /* Inicialmente invisível */
+  opacity: 0;
 }
 
 .nova-overlay.animate {
-  animation: slideInRight 1.0s ease-out forwards;
+  animation: slideInRight 1.4s ease-out forwards;
   animation-delay: 0.8s;
-  opacity: 0; /* Inicialmente invisível */
+  opacity: 0;
 }
 
-/* Responsividade: Ajuste timings em telas menores para animações mais rápidas */
-@media (max-width: 768px) {
+/* Responsividade: Ajustes para tablets e animações mais rápidas */
+@media (max-width: 1024px) {
+  .nova-container {
+    min-height: 400px;
+  }
+  
+  .nova-imagem {
+    width: 60vw;
+    height: 35vh;
+  }
+  
+  .nova-overlay {
+    width: 55vw;
+    height: 30vh;
+  }
+  
+  .nova-conteudo h2 {
+    font-size: 1.5rem;
+  }
+  
+  .nova-conteudo p {
+    font-size: 1rem;
+  }
+  
   .nova-imagem.animate,
   .nova-overlay.animate {
     animation-duration: 0.8s;
@@ -161,36 +178,39 @@
   }
 }
 
-/* Responsividade: Em telas menores (ex.: tablets/mobiles), ajuste tamanho */
-@media (max-width: 1024px) {
-  .nova-container {
-    height: 400px;
-  }
-  
-  .nova-imagem,
-  .nova-overlay {
-    width: calc(350px * (16 / 9));
-    height: 350px;
-  }
-  
-  .nova-conteudo h2 {
-    font-size: 1.5rem;
-  }
-  
-  .nova-conteudo p {
-    font-size: 1rem;
-  }
-}
-
+/* Responsividade: Em telas menores (tablets/mobiles), muda para layout vertical */
 @media (max-width: 768px) {
   .nova-container {
-    height: 300px;
+    flex-direction: column; /* Mudança: Empilha verticalmente */
+    min-height: auto; /* Altura automática para conteúdo */
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 20px; /* Espaço interno para evitar bordas */
   }
   
-  .nova-imagem,
+  .nova-imagem {
+    position: static; /* Remove absoluto para fluxo normal */
+    width: 100%; /* Largura total */
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 20px; /* Espaço entre imagem e overlay */
+  }
+  
   .nova-overlay {
-    width: calc(250px * (16 / 9));
-    height: 250px;
+    position: static; /* Remove absoluto */
+    width: 100%; /* Largura total */
+    height: auto;
+    padding: 20px;
+    justify-content: center; /* Centraliza conteúdo */
+  }
+  
+  .nova-conteudo {
+    margin-left: 0;
+    text-align: center; /* Centraliza texto e botão para melhor UX */
+  }
+  
+  .hero-actions {
+    text-align: center; /* Centraliza botão */
   }
   
   .nova-conteudo h2 {
@@ -199,6 +219,43 @@
   
   .nova-conteudo p {
     font-size: 0.9rem;
+  }
+  
+  /* Desabilita animações em mobile para evitar problemas */
+  .nova-imagem.animate,
+  .nova-overlay.animate {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Responsividade: Em telas muito pequenas (celulares), ajustes finais */
+@media (max-width: 480px) {
+  .nova-container {
+    padding: 10px; /* Reduz padding */
+  }
+  
+  .nova-imagem {
+    max-height: 200px; /* Imagem menor */
+    border-radius: 20px; /* Bordas menores */
+  }
+  
+  .nova-overlay {
+    padding: 15px;
+    border-radius: 20px;
+  }
+  
+  .nova-conteudo h2 {
+    font-size: 1rem;
+  }
+  
+  .nova-conteudo p {
+    font-size: 0.8rem;
+  }
+  
+  .hero-actions .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
 }
 </style>
