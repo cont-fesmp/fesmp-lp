@@ -20,7 +20,8 @@
 /* ===== HERO BASE ===== */
 .hero {
   max-width: 1000px;  /* Limita largura máxima do site para evitar overflow */
-  height: 400px;
+  aspect-ratio: 5 / 2;  /* Proporção exata das imagens (1000px x 400px = 5:2), para altura automática proporcional */
+  max-height: 400px;  /* Limita altura máxima no desktop para coincidir com as imagens */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +55,6 @@
   opacity: 1;
   transform: scale(1);
 }
-
 
 /* ===== BULLETS DE CONTROLE ===== */
 .carousel-bullets {
@@ -94,21 +94,12 @@
 @media (max-width: 768px) {
   .hero {
     max-width: 100%;  /* Em mobile, largura total para responsividade */
-    aspect-ratio: 3/1;  
-    min-height: 30vh; 
-  }
-
-  .hero-actions {
-    bottom: 0.5rem;  
-  }
-
-  .hero-actions .btn {
-    font-size: 0.6rem;  
-    padding: 0.4rem 0.8rem; 
+    aspect-ratio: 5 / 2;  /* Mantém proporção exata para altura automática proporcional */
+    max-height: none;  /* Remove limite de altura para permitir ajuste proporcional (altura será calculada como largura / 2.5) */
   }
 
   .carousel-bullets {
-    bottom: 3rem; 
+    bottom: 1rem; 
     padding: 0.4rem 0.8rem;  
   }
 
@@ -119,15 +110,7 @@
 
   .slide {
     border-radius: 20px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
-    background-size: contain;  /* Muda para contain em mobile para evitar cortes (manterá proporção, pode deixar espaços) */
-  }
-}
-
-/* Media query para tablets (opcional, mas ajuda na transição) */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .hero {
-    max-width: 1000px;  /* Mantém limite em tablets */
-    aspect-ratio: 3/1;
+    background-size: contain;  /* Mantém contain em mobile para evitar cortes e distorções (pode deixar espaços, mas preserva proporção) */
   }
 }
 </style>
