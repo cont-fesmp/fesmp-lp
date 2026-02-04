@@ -8,9 +8,15 @@
   ],
   "routes": [
     {
+      "src": "^/home/?$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "api/index.js"
     }
   ]
 }
-
