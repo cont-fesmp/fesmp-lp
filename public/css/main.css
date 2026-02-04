@@ -291,7 +291,7 @@ a {
 }
 
 #popup-caption {
-    text-align: center;
-    margin-top: 10px;
+    text-align: justify;
+    margin: 10px;
     font-size: 14px;
 }
