@@ -3,8 +3,7 @@
   <div class="carousel">
     <div class="slide active" style="background-image:url('/images/hero/hero1.png')"></div>
     <div class="slide" style="background-image:url('/images/hero/hero2.png')"></div>
-    <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>
-    <div class="slide" style="background-image:url('/images/hero/hero4.png')"></div>
+    <div class="slide" style="background-image:url('/images/hero/hero3.png')"></div>    
   </div>
 
   <!-- BULLETS DE CONTROLE ABAIXO DO BOTÃO -->
@@ -12,16 +11,15 @@
     <span class="bullet active" data-slide="0"></span>
     <span class="bullet" data-slide="1"></span>
     <span class="bullet" data-slide="2"></span>
-    <span class="bullet" data-slide="3"></span>
   </div>
 </section>
 
 <style>
 /* ===== HERO BASE ===== */
 .hero {
-  max-width: 1000px;  /* Limita largura máxima do site para evitar overflow */
-  aspect-ratio: 5 / 2;  /* Proporção exata das imagens (1000px x 400px = 5:2), para altura automática proporcional */
-  max-height: 400px;  /* Limita altura máxima no desktop para coincidir com as imagens */
+  max-width: 1200px;  
+  aspect-ratio: 3 / 1;
+  max-height: 400px;  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,18 +35,18 @@
 .slide {
   width: 100%;
   height: 100%;
-  position: absolute;  /* Mantém o efeito de slides sobrepostos */
+  position: absolute;  
   inset: 0;
 }
 
 .slide {
-  background-size: cover;  /* Mantém cover para cobrir, mas ajustável para contain se quiser sem cortes */
-  background-position: center;  /* Centralizado para melhor foco */
-  background-repeat: no-repeat;  /* Evita repetição da imagem */
+  background-size: cover;  
+  background-position: center;  
+  background-repeat: no-repeat; 
   opacity: 0;
   transition: opacity 1s ease-in-out, transform 6s ease;
-  border-radius: 40px;  /* Bordas arredondadas nas imagens */
-  overflow: hidden;  /* Garante que as bordas arredondadas sejam aplicadas */
+  border-radius: 40px;
+  overflow: hidden;  
 }
 
 .slide.active {
@@ -72,7 +70,7 @@
 }
 
 .bullet {
-  width: 16px;  /* Mantido seu ajuste: maior em desktop */
+  width: 16px;  
   height: 16px;
   background-color: #ffffff;  /* Fundo branco */
   border: 2px solid #ff0000;  /* Borda vermelha */
@@ -82,20 +80,20 @@
 }
 
 .bullet.active {
-  background-color: #ff0000;  /* Fundo vermelho quando ativo */
-  border-color: #ff0000;  /* Borda vermelha */
+  background-color: #ff0000;  
+  border-color: #ff0000;  
 }
 
 .bullet:hover {
-  background-color: #ff0000;  /* Efeito hover: fundo vermelho */
+  background-color: #2D7A3E;
 }
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 768px) {
   .hero {
-    max-width: 100%;  /* Em mobile, largura total para responsividade */
-    aspect-ratio: 5 / 2;  /* Mantém proporção exata para altura automática proporcional */
-    max-height: none;  /* Remove limite de altura para permitir ajuste proporcional (altura será calculada como largura / 2.5) */
+    max-width: 100%;  
+    aspect-ratio: 3 / 1;  
+    max-height: none; 
   }
 
   .carousel-bullets {
@@ -109,8 +107,8 @@
   }
 
   .slide {
-    border-radius: 20px;  /* Bordas menos arredondadas em telas menores para melhor adaptação */
-    background-size: contain;  /* Mantém contain em mobile para evitar cortes e distorções (pode deixar espaços, mas preserva proporção) */
+    border-radius: 20px;  
+    background-size: contain;
   }
 }
 </style>
