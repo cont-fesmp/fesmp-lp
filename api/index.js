@@ -42,6 +42,8 @@ const cursos = loadJSON('cursos.json');
 
 app.get('/', (req, res) => {
   try {
+    // Cache por 1 hora na CDN, serve stale por até 1 dia enquanto revalida
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400');
     res.render('index', {
       pageTitle: 'FESMP - Fundação Escola Superior do Ministério Público de Mato Grosso',
       metaDescription: 'Pós-graduações em Direito com compromisso acadêmico, excelência no ensino e formação qualificada para o desenvolvimento profissional jurídico.',
@@ -59,6 +61,7 @@ app.get('/', (req, res) => {
 
 app.get('/noticias', (req, res) => {
   try {
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400');
     res.render('noticias', {
       pageTitle: 'Notícias - FESMP',
       metaDescription: 'Acompanhe as últimas notícias da FESMP',
@@ -71,6 +74,7 @@ app.get('/noticias', (req, res) => {
 
 app.get('/contato', (req, res) => {
   try {
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400');
     res.render('contato', {
       pageTitle: 'Contato - FESMP',
       metaDescription: 'Entre em contato com a FESMP'
@@ -82,6 +86,7 @@ app.get('/contato', (req, res) => {
 
 app.get('/certificado', (req, res) => {
   try {
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400');
     res.render('certificado', {
       pageTitle: 'Certificado - FESMP',
       metaDescription: 'Informações sobre certificados de cursos de extensão da FESMP'
@@ -93,6 +98,7 @@ app.get('/certificado', (req, res) => {
 
 app.get('/sobre', (req, res) => {
   try {
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400');
     res.render('sobre', {
       pageTitle: 'Missão, Visão e Valores - FESMP',
       metaDescription: 'Conheça a missão, visão e valores da FESMP'
@@ -110,21 +116,21 @@ app.get('/portal-aluno', (req, res) => {
   res.redirect('https://fundacaoescola.escolaweb.com.br/login.html#!/');
 });
 
-// Rota para download do PDF
+// Rota para download do PDF (cache curto, pois é download)
 app.get('/download/pdf', (req, res) => {
-    const filePath = path.join(rootDir, 'public', 'download', 'CARTILHA FUND PRIV.pdf');  
-    res.download(filePath, 'CARTILHA FUND PRIV.pdf', (err) => {
-        if (err) {
-            console.error('Erro no download:', err);
-            res.status(500).send('Erro ao baixar o arquivo.');
-        }
-    });
+  res.set('Cache-Control', 'public, max-age=300, s-maxage=300'); // 5 minutos
+  const filePath = path.join(rootDir, 'public', 'download', 'CARTILHA FUND PRIV.pdf');  
+  res.download(filePath, 'CARTILHA FUND PRIV.pdf', (err) => {
+    if (err) {
+      console.error('Erro no download:', err);
+      res.status(500).send('Erro ao baixar o arquivo.');
+    }
+  });
 });
-
 
 app.post('/api/contato', (req, res) => {
   console.log('Formulário recebido:', req.body);
-
+  // Sem cache para POST (não necessário)
   res.json({
     success: true,
     message: 'Mensagem recebida com sucesso! Entraremos em contato em breve.'
