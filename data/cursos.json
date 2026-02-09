@@ -5,27 +5,27 @@
     "descricao": "Especialização completa em Direito Penal com enfoque prático e teórico avançado.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/direito-penal.jpg",
     "destaque": true
   },
   {
     "id": 2,
-    "nome": "Direito da Insolvência Empresarial",
+    "nome": "Direito da Insolvência Empresarial - EM BREVE!",
     "descricao": "Formação completa em Direito da Insolvência Empresarial para quem quer se posicionar nas áreas mais estratégicas do mercado jurídico.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/direito-insolvencia.jpg",
     "destaque": true
   },
   {
     "id": 3,
-    "nome": "Licenciamento Ambiental",
+    "nome": "Licenciamento Ambiental - EM BREVE!",
     "descricao": "Especialização em Licenciamento Ambiental com foco prático na Nova Lei Geral (Lei nº 15.190/2025) e na atuação estratégica em todas as etapas do licenciamento.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/licenciamento.jpg",
     "destaque": true
   },
@@ -35,7 +35,7 @@
     "descricao": "Formação especializada em Direito Ambiental e Urbanístico para quem quer atuar na linha de frente da sustentabilidade e da gestão urbana.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/direito-ambiental.jpg",
     "destaque": false
   },
@@ -45,17 +45,17 @@
     "descricao": "Pós-graduação em Direito Processual Civil voltada à prática forense, à celeridade processual e à efetividade das decisões judiciais.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/direito-civil.jpg",
     "destaque": false
   },
   {
     "id": 6,
     "nome": "Direito Constitucional e Administrativo",
-    "descricao": "",
+    "descricao": "Formação avançada em Direito Constitucional e Administrativo para a compreensão crítica das instituições públicas e o exercício da advocacia estratégica frente ao poder público.",
     "duracao": "12 meses",
     "cargaHoraria": "360 horas",
-    "modalidade": "Presencial",
+    "modalidade": "Híbrida",
     "imagem": "/images/cursos/direito-constitucional.jpg",
     "destaque": false
   }
